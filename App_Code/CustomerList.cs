@@ -18,7 +18,7 @@ public class CustomerList
     /// <summary>
     ///     The _contact list
     /// </summary>
-    private readonly List<CustomerListItem> _contactList;
+    private readonly List<CustomerListItem> _customerList;
 
     #endregion
 
@@ -29,7 +29,7 @@ public class CustomerList
     /// </summary>
     public CustomerList()
     {
-        this._contactList = new List<CustomerListItem>();
+        this._customerList = new List<CustomerListItem>();
     }
 
     #endregion
@@ -44,7 +44,7 @@ public class CustomerList
     /// </value>
     public int Count
     {
-        get { return this._contactList.Count; }
+        get { return this._customerList.Count; }
     }
 
     /// <summary>
@@ -57,11 +57,11 @@ public class CustomerList
     /// <returns></returns>
     public CustomerListItem this[int index]
     {
-        get { return this._contactList[index]; }
+        get { return this._customerList[index]; }
         set
         {
             Trace.Assert(value != null, "Invalid Data");
-            this._contactList[index] = value;
+            this._customerList[index] = value;
         }
     }
 
@@ -77,7 +77,7 @@ public class CustomerList
     {
         get
         {
-            foreach (var currCustomer in this._contactList)
+            foreach (var currCustomer in this._customerList)
             {
                 if (currCustomer.Customer.CustomerId == id)
                 {
@@ -96,7 +96,7 @@ public class CustomerList
     ///     Gets the list.
     /// </summary>
     /// <returns></returns>
-    public static CustomerList GetList()
+    public static CustomerList GetCustomers()
     {
         var contactList = (CustomerList) HttpContext.Current.Session["ContactList"];
         if (contactList == null)
@@ -113,7 +113,7 @@ public class CustomerList
     public void AddCustomer(Customer currentCustomer)
     {
         var newCustomer = new CustomerListItem(currentCustomer);
-        this._contactList.Add(newCustomer);
+        this._customerList.Add(newCustomer);
     }
 
     /// <summary>
@@ -122,7 +122,7 @@ public class CustomerList
     /// <param name="index">The index.</param>
     public void RemoveAt(int index)
     {
-        this._contactList.RemoveAt(index);
+        this._customerList.RemoveAt(index);
     }
 
     /// <summary>
@@ -130,7 +130,7 @@ public class CustomerList
     /// </summary>
     public void Clear()
     {
-        this._contactList.Clear();
+        this._customerList.Clear();
     }
 
     #endregion

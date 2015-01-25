@@ -47,7 +47,6 @@ public partial class CustomerDisplay : Page
             EmailAddress = row["Email"].ToString()
         };
 
-
         return selectedCustomer;
     }
 
@@ -76,28 +75,30 @@ public partial class CustomerDisplay : Page
 
     protected void btnAddToContacts_Click(object sender, EventArgs e)
     {
-        if (Page.IsValid)
+        if (!Page.IsValid)
         {
-            var customerList = CustomerList.GetList();
-            var customerItem = customerList[this._currentCustomer.CustomerId];
-            if (customerItem == null)
-            {
-                customerList.AddCustomer(this._currentCustomer);
-            }
-            else
-            {
-                this.alreadyBeenAdded();
-            }
-            Response.Redirect("CustomerListDisplay.aspx");
+            return;
         }
+        var customerList = CustomerList.GetCustomers();
+        var customerItem = customerList[this._currentCustomer.CustomerId];
+        if (customerItem == null)
+        {
+            customerList.AddCustomer(this._currentCustomer);
+        }
+        else
+        {
+            this.alreadyBeenAdded();
+        }
+        Response.Redirect("ContactList.aspx");
     }
 
     private void alreadyBeenAdded()
     {
-        throw new NotImplementedException();
+        
     }
 
     protected void btnViewContactList_Click(object sender, EventArgs e)
     {
+        Response.Redirect("ContactList.aspx");
     }
 }

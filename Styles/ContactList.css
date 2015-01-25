@@ -1,0 +1,31 @@
+﻿h1 { 
+    padding: 0;
+    margin-bottom: .25em;
+}
+/* The styles for the cart */
+#lstCart { 
+    margin: 0 0 1em;
+    float: left;
+}
+option {
+    margin: .5em;
+}
+/* The style for all four buttons */
+.button {
+}
+/* The styles for the buttons to the right of the cart */
+#btnRemove, #btnEmpty {
+    margin-left: 1em;
+}
+#btnRemove {
+    margin-bottom: 1em;
+}
+
+#actionButtons {
+    display: block;
+}
+#btnContinue {
+    margin-right: 1em;
+}
+
+
