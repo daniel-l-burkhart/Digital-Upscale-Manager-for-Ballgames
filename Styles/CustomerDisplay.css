@@ -1,14 +1,23 @@
-﻿section {
-    padding: 1em;
+﻿section { padding: 1em; }
+
+#ddlCustomerList { width: 15em; }
+
+#lblBallGamesTitle {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
 }
-#ddlCustomerList {
-    width: 15em;
+
+#lblSlogan {
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
 }
 
 #productData {
+    float: left;
     padding: 1em 0;
     width: 400px;
-    float: left;
 }
 
 #lblName {
@@ -22,15 +31,14 @@
     margin-bottom: 1em;
 }
 
-#lblLongDescription {
-    margin-bottom: 2em;
-}
+#lblLongDescription { margin-bottom: 2em; }
 
 
 .validator {
-    margin-left: 1em;
     color: red;
+    margin-left: 1em;
 }
-#btnAdd {
-    margin: 1em 0 0;
-}
+
+#btnAddToContacts { float: left; }
+
+#btnViewContactList { float: right; }

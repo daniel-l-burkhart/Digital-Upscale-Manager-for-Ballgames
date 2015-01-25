@@ -73,4 +73,31 @@ public partial class CustomerDisplay : Page
         this.lblPhone.Text = this._currentCustomer.PhoneNumber;
         this.lblEmail.Text = this._currentCustomer.EmailAddress;
     }
+
+    protected void btnAddToContacts_Click(object sender, EventArgs e)
+    {
+        if (Page.IsValid)
+        {
+            var customerList = CustomerList.GetList();
+            var customerItem = customerList[this._currentCustomer.CustomerId];
+            if (customerItem == null)
+            {
+                customerList.AddCustomer(this._currentCustomer);
+            }
+            else
+            {
+                this.alreadyBeenAdded();
+            }
+            Response.Redirect("CustomerListDisplay.aspx");
+        }
+    }
+
+    private void alreadyBeenAdded()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected void btnViewContactList_Click(object sender, EventArgs e)
+    {
+    }
 }
