@@ -1,10 +1,22 @@
 ﻿using System.Diagnostics;
 
+/// <author>
+///     Daniel Burkhart
+/// </author>
+/// <version>
+///     Spring 2015
+/// </version>
 /// <summary>
-///     Summary description for CustomerListItem
+///     Each item of the list that holds the customers.
 /// </summary>
 public class CustomerListItem
 {
+    /// <summary>
+    ///     Gets or sets the customer.
+    /// </summary>
+    /// <value>
+    ///     The customer.
+    /// </value>
     public Customer Customer
     {
         get { return this._customer; }
@@ -15,19 +27,31 @@ public class CustomerListItem
         }
     }
 
+    /// <summary>
+    ///     The _customer
+    /// </summary>
     private Customer _customer;
 
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="CustomerListItem" /> class.
+    /// </summary>
+    /// <param name="cusomter">The cusomter.</param>
     public CustomerListItem(Customer cusomter)
     {
         this.Customer = cusomter;
     }
 
+    /// <summary>
+    ///     Displays this instance in a string format to be used by the list page.
+    /// </summary>
+    /// <returns></returns>
     public string Display()
     {
-        var stringForDisplay = this.Customer.CustomerName + " " + this.Customer.Address
-                               + " " + this.Customer.City + ", " + this.Customer.State + " " +
-                               this.Customer.ZipCode + " " + this.Customer.PhoneNumber
-                               + " " + this.Customer.EmailAddress;
+        var customerNameSplit = this.Customer.CustomerName.Split(' ');
+        var firstName = customerNameSplit[0];
+        var lastName = customerNameSplit[1];
+        var stringForDisplay = lastName + ", " + firstName + ": " + this.Customer.PhoneNumber
+                               + "; " + this.Customer.EmailAddress;
         return stringForDisplay;
     }
 }

@@ -24,7 +24,7 @@
 
             <asp:Button ID="btnClearList" runat="server" Text="Clear Contact List"
                         onclick="btnEmpty_Click"/>
-            <br />
+            <br/>
             <br/>
         </div>
         <asp:ListBox ID="firstCustomerList" runat="server" Height="200px" Width="700px" AutoPostBack="True"></asp:ListBox>

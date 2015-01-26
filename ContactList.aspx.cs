@@ -36,7 +36,6 @@ public partial class ContactList : Page
         {
             this.DisplayCustomers();
         }
-        
     }
 
     /// <summary>

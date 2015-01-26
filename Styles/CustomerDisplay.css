@@ -16,9 +16,9 @@
 
 #productData {
     float: left;
+    height: 324px;
     padding: 1em 0;
     width: 400px;
-    height: 324px;
 }
 
 #lblName {
