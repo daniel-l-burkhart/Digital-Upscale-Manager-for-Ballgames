@@ -14,10 +14,4 @@
 
 option { margin: .5em; }
 
-#btnRemove, #btnEmpty { margin-left: 1em; }
-
-#btnRemove { margin-bottom: 1em; }
-
 #actionButtons { display: block; }
-
-#btnContinue { margin-right: 1em; }
