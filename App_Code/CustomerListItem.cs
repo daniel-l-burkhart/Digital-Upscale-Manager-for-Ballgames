@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 /// <summary>
 ///     Summary description for CustomerListItem
@@ -25,7 +24,10 @@ public class CustomerListItem
 
     public string Display()
     {
-        string stringForDisplay = this.Customer.CustomerName + Environment.NewLine + this.Customer.Address + Environment.NewLine + this.Customer.City+", " +this.Customer.State + " " + this.Customer.ZipCode + Environment.NewLine + this.Customer.PhoneNumber + Environment.NewLine + this.Customer.EmailAddress;
+        var stringForDisplay = this.Customer.CustomerName + " " + this.Customer.Address
+                               + " " + this.Customer.City + ", " + this.Customer.State + " " +
+                               this.Customer.ZipCode + " " + this.Customer.PhoneNumber
+                               + " " + this.Customer.EmailAddress;
         return stringForDisplay;
     }
 }

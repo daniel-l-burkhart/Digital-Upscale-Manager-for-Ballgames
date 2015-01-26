@@ -13,13 +13,16 @@ using System.Web.UI;
 public partial class ContactList : Page
 {
     #region Instance Variables
+
     /// <summary>
     ///     The _customer list
     /// </summary>
     private CustomerList _customerList;
+
     #endregion
 
     #region Methods
+
     /// <summary>
     ///     Handles the Load event of the Page control.
     /// </summary>
@@ -27,11 +30,13 @@ public partial class ContactList : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
+        this._customerList = new CustomerList();
         this._customerList = CustomerList.GetCustomers();
         if (!IsPostBack)
         {
             this.DisplayCustomers();
         }
+        
     }
 
     /// <summary>
@@ -61,7 +66,7 @@ public partial class ContactList : Page
     }
 
     /// <summary>
-    /// Removes the customer.
+    ///     Removes the customer.
     /// </summary>
     private void RemoveCustomer()
     {
@@ -90,5 +95,6 @@ public partial class ContactList : Page
         this._customerList.Clear();
         this.firstCustomerList.Items.Clear();
     }
+
     #endregion
 }

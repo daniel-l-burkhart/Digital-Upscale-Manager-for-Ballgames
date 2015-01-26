@@ -94,7 +94,6 @@ public partial class CustomerDisplay : Page
 
     private void alreadyBeenAdded()
     {
-        
     }
 
     protected void btnViewContactList_Click(object sender, EventArgs e)
