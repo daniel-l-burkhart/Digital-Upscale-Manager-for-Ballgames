@@ -32,7 +32,11 @@
         <div id="cartbuttons">
             <asp:Label ID="lblMessage" runat="server"></asp:Label>
         </div>
+        <br/>
+        <br/>
+        <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" />
     </form>
 </section>
+    
 </body>
 </html>

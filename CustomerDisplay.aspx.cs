@@ -100,4 +100,10 @@ public partial class CustomerDisplay : Page
     {
         Response.Redirect("ContactList.aspx");
     }
+
+ 
+    protected void btnHomeButton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HomePage.aspx");
+    }
 }

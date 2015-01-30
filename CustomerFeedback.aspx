@@ -18,15 +18,18 @@
     <asp:Label ID="lblCustomerId" runat="server" Text="Insert Customer ID:"></asp:Label>
     <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
        <asp:Button ID="btnForCustomerIDSearch" runat="server" Text="Submit Customer ID." OnClick="btnForCustomerIDSearch_Click"/>
-       <br />
+       <br/>
+       <br/>
+       <br/>
    </div>
     <div id ="listBox">
-        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" DataSourceID="AccessDataSource1" DataTextField="Description" DataValueField="DateClosed">
+        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" DataSourceID="AccessDataSource1" DataTextField="Description" DataValueField="CustomerID">
             <asp:ListItem></asp:ListItem>
         </asp:ListBox>
     </div>
     <div>
-        
+        <br/>
+ 
         <asp:Label ID="lblRatings" runat="server" Text="Ratings"></asp:Label>
         <br />
         <br />
@@ -36,12 +39,14 @@
             <asp:ListItem>Neither Satisfied Nor Dissatisfied</asp:ListItem>
             <asp:ListItem>Dissatisfied</asp:ListItem>
         </asp:RadioButtonList>
+        <br/>
         <asp:Label ID="lblTechnicalEfficiency" runat="server" Text="Technical Efficiency"></asp:Label>
         <asp:RadioButtonList ID="rblTechnicalEfficiency" runat="server" RepeatDirection="Horizontal">
             <asp:ListItem>Satisfied</asp:ListItem>
             <asp:ListItem>Neither Satisfied Nor Dissatisfied</asp:ListItem>
             <asp:ListItem>Dissatisfied</asp:ListItem>
         </asp:RadioButtonList>
+        <br/>
         <asp:Label ID="lblProblemResolution" runat="server" Text="Problem Resolution"></asp:Label>
         <asp:RadioButtonList ID="rblProblemResolution" runat="server" RepeatDirection="Horizontal">
             <asp:ListItem>Satisfied</asp:ListItem>
@@ -64,6 +69,10 @@
         </asp:RadioButtonList>
         <br />
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+        
+        <br />
+        <br />
+        <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" />
         
     </div>
 </form>

@@ -15,10 +15,7 @@
 <section>
     <form id="form1" runat="server">
         
-            <h3>Please select a Customer</h3>
-            <br/>
-            <br/>
-       
+        <h3>Please select a Customer</h3>
         <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Customer]"></asp:AccessDataSource>
         <br/>
         <asp:DropDownList ID="ddlCustomerList" runat="server" DataSourceID="AccessDataSource1" DataTextField="Name" DataValueField="CustomerID" AutoPostBack="True">
@@ -41,8 +38,16 @@
             <br/>
             <asp:Button ID="btnAddToContacts" runat="server" OnClick="btnAddToContacts_Click" Text="Add to Contacts" Width="143px"/>
             <asp:Button ID="btnViewContactList" runat="server" OnClick="btnViewContactList_Click" Text="View Contact List"/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click" />
+
         </div>
+
     </form>
+   
 </section>
 </body>
 </html>

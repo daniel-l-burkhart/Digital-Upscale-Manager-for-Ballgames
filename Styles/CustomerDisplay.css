@@ -18,7 +18,12 @@
     float: left;
     height: 324px;
     padding: 1em 0;
-    width: 400px;
+    width: 350px;
+}
+
+section {
+    height: 480px;
+    width: 680px;
 }
 
 #lblName {

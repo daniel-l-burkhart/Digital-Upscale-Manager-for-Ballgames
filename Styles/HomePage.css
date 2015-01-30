@@ -1,0 +1,21 @@
+﻿label {
+    margin-right: 1em;
+}
+
+.button {
+    margin-top: 1em;
+    padding: .25em .5em;
+    width: 7em;
+}
+
+
+.label {
+    float: left;
+    width: 9em;
+}
+
+p {
+    font-size: 22px;
+    font-weight: bold;
+
+}

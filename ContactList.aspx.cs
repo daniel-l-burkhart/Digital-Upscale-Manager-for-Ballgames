@@ -98,5 +98,15 @@ public partial class ContactList : Page
         this.firstCustomerList.Items.Clear();
     }
 
+    /// <summary>
+    /// Handles the Click event of the btnHomeButton control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    protected void btnHomeButton_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("HomePage.aspx");
+    }
     #endregion
+   
 }
