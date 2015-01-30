@@ -12,7 +12,7 @@ using System.Web.UI;
 /// </summary>
 public partial class ContactList : Page
 {
-    #region Instance Variables
+    #region Instance Variable
 
     /// <summary>
     ///     The _customer list
@@ -44,10 +44,13 @@ public partial class ContactList : Page
     private void DisplayCustomers()
     {
         this.firstCustomerList.Items.Clear();
+        this._customerList.CustomerListSort();
         for (var i = 0; i < this._customerList.Count; i++)
         {
+            
             var customerForList = this._customerList[i];
             this.firstCustomerList.Items.Add(customerForList.Display());
+            
         }
     }
 

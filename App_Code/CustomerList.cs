@@ -133,5 +133,10 @@ public class CustomerList
         this._customerList.Clear();
     }
 
+    public void CustomerListSort()
+    {
+        this._customerList.Sort(new LastNameCustomerSort());
+    }
+
     #endregion
 }
