@@ -4,13 +4,21 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <link href="Styles/Main.css" rel="stylesheet" />
+    <title>Home Page</title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 700px;
+            height: 88px;
+        }
+    </style>
 </head>
 <body>
+<header>
+    
+    <img alt="Digital Upscale manager for ballgames" class="auto-style1" src="Images/DigitalBallGamesManagerHeader.png" /></header>
 <form id="form1" runat="server">
-    <div>
-
-    </div>
+   
 </form>
 </body>
 </html>

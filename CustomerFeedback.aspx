@@ -9,6 +9,9 @@
 
 </head>
 <body>
+<header>
+    <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital Upscale manager for ballgames"/>
+</header>
 <form id="form1" runat="server" DefaultFocus="txtCustomerID">
     <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback] WHERE ([DateClosed] IS NOT NULL)"></asp:AccessDataSource>
    <div id ="customerIDSearch">

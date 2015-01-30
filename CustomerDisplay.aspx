@@ -9,20 +9,16 @@
     <link rel="stylesheet" type="text/css" href="Styles/CustomerDisplay.css"/>
 </head>
 <body>
+<header>
+    <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital Upscale manager for ballgames"/>
+</header>
 <section>
     <form id="form1" runat="server">
-        <asp:Label ID="lblBallGamesTitle" runat="server" Text="Digital Upscale Manager for Ballgames"></asp:Label>
-        <label>
+        
+            <h3>Please select a Customer</h3>
             <br/>
             <br/>
-            <asp:Label ID="lblSlogan" runat="server" Text="Managing Ballgames with Technology"></asp:Label>
-            <br/>
-            <br/>
-            Please select a Customer&nbsp;
-            <br/>
-            <br/>
-        </label>
-
+       
         <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Customer]"></asp:AccessDataSource>
         <br/>
         <asp:DropDownList ID="ddlCustomerList" runat="server" DataSourceID="AccessDataSource1" DataTextField="Name" DataValueField="CustomerID" AutoPostBack="True">

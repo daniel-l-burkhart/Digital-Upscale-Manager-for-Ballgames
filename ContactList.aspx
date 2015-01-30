@@ -10,10 +10,11 @@
 
 </head>
 <body>
+<header>
+    <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital Upscale manager for ballgames"/>
+</header>
 <section>
     <form id="form1" runat="server">
-        <h1>Digital Upscale Manager for Ballgames</h1>
-        <h2>Managing Ballgames with Technology</h2>
         <h3>Contact List</h3>
         <div id="actionButtons">
             <asp:Button ID="btnAddMoreCustomer" runat="server"
