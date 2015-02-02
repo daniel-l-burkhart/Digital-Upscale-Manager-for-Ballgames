@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Linq;
 using System.Web.UI;
 
 /// <author>
@@ -12,6 +14,10 @@ using System.Web.UI;
 /// </summary>
 public partial class CustomerFeedback : Page
 {
+
+    private DescriptionList descriptionList;
+    private Feedback currentFeedback;
+
     /// <summary>
     /// Handles the Load event of the Page control.
     /// </summary>
@@ -49,11 +55,33 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     protected void btnForCustomerIDSearch_Click(object sender, EventArgs e)
     {
-        if (this.txtCustomerID.Text != null)
+        if (this.txtCustomerID.Text == null)
         {
-            //search for customer ID in database.
-            this.ToggleControls(true);
+            return;
         }
+        DataView feedbackTable = (DataView)
+            this.AccessDataSource1.Select(DataSourceSelectArguments.Empty);
+        if (feedbackTable == null)
+        {
+            return;
+        }
+        feedbackTable.RowFilter =
+            "CustomerID = '" + Convert.ToInt32(this.txtCustomerID.Text) + "'";
+        DataRowView row = (DataRowView)feedbackTable[0];
+
+        this.currentFeedback = new Feedback
+        {
+            CustomerId = Convert.ToInt32(row["CustomerID"]),
+            SoftwareID = Convert.ToInt32(row["SoftwareID"]),
+            SupportID = Convert.ToInt32(row["SuuportID"]),
+            FeedbackId = Convert.ToInt32(row["FeedbackID"]),
+            DateOpened = row["DateOpened"].ToString(),
+            DateClosed = row["DateClosed"].ToString(),
+            Title = row["Title"].ToString(),
+            Description = row["Description"].ToString()
+        };
+        this.lbClosedFeedbackList.Items.Add(this.currentFeedback.FormatFeedback());
+        this.ToggleControls(true);
     }
     /// <summary>
     /// Handles the Click event of the btnHomeButton control.
@@ -62,6 +90,26 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     protected void btnHomeButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("HomePage.aspx");
+        this.Response.Redirect("HomePage.aspx");
+    }
+
+    /// <summary>
+    /// Handles the Click event of the btnSubmit control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        var feedback = new Description
+        {
+            SericeTime = this.rblServiceTime.SelectedIndex,
+            Efficiency = this.rblTechnicalEfficiency.SelectedIndex,
+            Resolution = this.rblProblemResolution.SelectedIndex,
+            Comments = this.txtAdditionalComments.Text,
+            Contact = this.cbContact.Checked,
+            ContactMethod = this.rblHowToContact.SelectedValue
+        };
+        this.descriptionList.AddFeedBackToList(feedback);
+        this.Response.Redirect("FeedbackComplete.aspx");
     }
 }

@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="Styles/Main.css" rel="stylesheet" />
+    <link href="Styles/CustomerFeedback.css" rel="stylesheet" />
     <title>Customer Feedback</title>
 
 </head>
@@ -13,17 +14,24 @@
     <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital Upscale manager for ballgames"/>
 </header>
 <form id="form1" runat="server" DefaultFocus="txtCustomerID">
-    <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback] WHERE ([DateClosed] IS NOT NULL)"></asp:AccessDataSource>
+    <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT [SoftwareID], [DateClosed], [Title], [CustomerID] FROM [Feedback] WHERE (([DateClosed] IS NOT NULL) AND ([CustomerID] = ?))">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="txtCustomerID" Name="CustomerID" PropertyName="Text" Type="Int32" />
+        </SelectParameters>
+    </asp:AccessDataSource>
    <div id ="customerIDSearch">
     <asp:Label ID="lblCustomerId" runat="server" Text="Insert Customer ID:"></asp:Label>
     <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
+       <asp:RequiredFieldValidator ID="rfvCustomerID" runat="server" ControlToValidate="txtCustomerID" CssClass="validator" Display="Dynamic" ErrorMessage="Must enter a customer ID"></asp:RequiredFieldValidator>
+       <asp:CompareValidator ID="cvCustomerIDValidator" runat="server" ControlToValidate="txtCustomerID" Display="Dynamic" ErrorMessage="Must be a valid Customer ID" Operator="DataTypeCheck" Type="Integer" CssClass="validator"></asp:CompareValidator>
+       <br />
        <asp:Button ID="btnForCustomerIDSearch" runat="server" Text="Submit Customer ID." OnClick="btnForCustomerIDSearch_Click"/>
        <br/>
        <br/>
        <br/>
    </div>
     <div id ="listBox">
-        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" DataSourceID="AccessDataSource1" DataTextField="Description" DataValueField="CustomerID">
+        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True">
             <asp:ListItem></asp:ListItem>
         </asp:ListBox>
     </div>
@@ -35,23 +43,23 @@
         <br />
         <asp:Label ID="lblServiceTime" runat="server" Text="Service Time:"></asp:Label>
         <asp:RadioButtonList ID="rblServiceTime" runat="server" RepeatDirection="Horizontal">
-            <asp:ListItem>Satisfied</asp:ListItem>
-            <asp:ListItem>Neither Satisfied Nor Dissatisfied</asp:ListItem>
-            <asp:ListItem>Dissatisfied</asp:ListItem>
+            <asp:ListItem Value="1">Satisfied</asp:ListItem>
+            <asp:ListItem Value="2">Neither Satisfied Nor Dissatisfied</asp:ListItem>
+            <asp:ListItem Value="3">Dissatisfied</asp:ListItem>
         </asp:RadioButtonList>
         <br/>
         <asp:Label ID="lblTechnicalEfficiency" runat="server" Text="Technical Efficiency"></asp:Label>
         <asp:RadioButtonList ID="rblTechnicalEfficiency" runat="server" RepeatDirection="Horizontal">
-            <asp:ListItem>Satisfied</asp:ListItem>
-            <asp:ListItem>Neither Satisfied Nor Dissatisfied</asp:ListItem>
-            <asp:ListItem>Dissatisfied</asp:ListItem>
+            <asp:ListItem Value="1">Satisfied</asp:ListItem>
+            <asp:ListItem Value="2">Neither Satisfied Nor Dissatisfied</asp:ListItem>
+            <asp:ListItem Value="3">Dissatisfied</asp:ListItem>
         </asp:RadioButtonList>
         <br/>
         <asp:Label ID="lblProblemResolution" runat="server" Text="Problem Resolution"></asp:Label>
         <asp:RadioButtonList ID="rblProblemResolution" runat="server" RepeatDirection="Horizontal">
-            <asp:ListItem>Satisfied</asp:ListItem>
-            <asp:ListItem>Neither Satisfied Nor Dissatisfied</asp:ListItem>
-            <asp:ListItem>Dissatisfied</asp:ListItem>
+            <asp:ListItem Value="1">Satisfied</asp:ListItem>
+            <asp:ListItem Value="2">Neither Satisfied Nor Dissatisfied</asp:ListItem>
+            <asp:ListItem Value="3">Dissatisfied</asp:ListItem>
         </asp:RadioButtonList>
         <br />
         <asp:Label ID="lblAdditionalComments" runat="server" Text="Additional Comments"></asp:Label>
@@ -68,7 +76,7 @@
             <asp:ListItem>Email</asp:ListItem>
         </asp:RadioButtonList>
         <br />
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
         
         <br />
         <br />

@@ -41,9 +41,9 @@ public class Description
     ///     Gets or sets the serive time.
     /// </summary>
     /// <value>
-    ///     The serive time.
+    ///     The serice time.
     /// </value>
-    public int SeriveTime
+    public int SericeTime
     {
         get { return this._serviceTime; }
         set
@@ -52,6 +52,19 @@ public class Description
             this._serviceTime = value;
         }
     }
+
+    private int _efficiency;
+
+    public int Efficiency
+    {
+        get { return this._efficiency; }
+        set
+        {
+            Trace.Assert(true, "Invalid Data");
+            this._efficiency = value;
+        }
+    }
+    
 
     /// <summary>
     ///     Gets or sets the resolution.
