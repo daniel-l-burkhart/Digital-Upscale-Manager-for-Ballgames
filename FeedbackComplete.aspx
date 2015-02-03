@@ -16,6 +16,8 @@
 </div>
     <div>
         
+        <asp:Label ID="lblContacted" runat="server"></asp:Label>
+        
     </div>
 </form>
 </body>

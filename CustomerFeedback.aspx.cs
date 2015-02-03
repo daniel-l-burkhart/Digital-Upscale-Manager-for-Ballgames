@@ -7,7 +7,7 @@ using System.Web.UI;
 /// Daniel Burkhart
 /// </author>
 /// <version>
-/// Spring 2015
+/// 2/5/15
 /// </version>
 /// <summary>
 /// The code behind for the Customer feedback page
@@ -15,8 +15,14 @@ using System.Web.UI;
 public partial class CustomerFeedback : Page
 {
 
-    private DescriptionList descriptionList;
-    private Feedback currentFeedback;
+    /// <summary>
+    /// The _description list
+    /// </summary>
+    private DescriptionList _descriptionList;
+    /// <summary>
+    /// The _current feedback
+    /// </summary>
+    private Feedback _currentFeedback;
 
     /// <summary>
     /// Handles the Load event of the Page control.
@@ -25,7 +31,11 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.ToggleControls(false);
+        this._descriptionList = new DescriptionList();
+        if (!IsPostBack)
+        {
+            this.ToggleControls(false);
+        }
     }
 
     /// <summary>
@@ -55,6 +65,7 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     protected void btnForCustomerIDSearch_Click(object sender, EventArgs e)
     {
+        this.SetFocus(this.lbClosedFeedbackList);
         if (this.txtCustomerID.Text == null)
         {
             return;
@@ -69,7 +80,7 @@ public partial class CustomerFeedback : Page
         feedbackTable.RowFilter = "CustomerID = '" + this.txtCustomerID.Text + "'";
         var row = feedbackTable[0];
 
-        this.currentFeedback = new Feedback
+        this._currentFeedback = new Feedback
         {
             CustomerId = row["CustomerID"].ToString(),
             SoftwareID = row["SoftwareID"].ToString(),
@@ -81,7 +92,7 @@ public partial class CustomerFeedback : Page
             Description = row["Description"].ToString()
         };
 
-        this.lbClosedFeedbackList.Items.Add(this.currentFeedback.FormatFeedback());
+        this.lbClosedFeedbackList.Items.Add(this._currentFeedback.FormatFeedback());
         this.ToggleControls(true);
     }
     /// <summary>
@@ -101,6 +112,7 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        
         var feedback = new Description
         {
             SericeTime = this.rblServiceTime.SelectedIndex,
@@ -110,7 +122,8 @@ public partial class CustomerFeedback : Page
             Contact = this.cbContact.Checked,
             ContactMethod = this.rblHowToContact.SelectedValue
         };
-        this.descriptionList.AddFeedBackToList(feedback);
-        this.Response.Redirect("FeedbackComplete.aspx");
+        this._descriptionList.AddFeedBackToList(feedback);
+        this.Session["BooleanValueContact"] = this.cbContact.Checked;
+        this.Response.Redirect("~/FeedbackComplete.aspx");
     }
 }
