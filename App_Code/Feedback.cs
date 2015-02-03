@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 /// <summary>
 ///     Summary description for Feedback
@@ -6,9 +7,9 @@
 public class Feedback
 {
 
-    private int _feedbackID;
+    private string _feedbackID;
 
-    public int FeedbackId
+    public string FeedbackId
     {
         get { return this._feedbackID; }
         set
@@ -18,9 +19,9 @@ public class Feedback
         }
     }
 
-    private int _customerID;
+    private string _customerID;
 
-    public int CustomerId
+    public string CustomerId
     {
         get { return _customerID; }
         set
@@ -30,9 +31,9 @@ public class Feedback
         }
     }
 
-    private int _softwareId;
+    private string _softwareId;
 
-    public int SoftwareID
+    public string SoftwareID
     {
         get { return _softwareId; }
         set
@@ -42,9 +43,9 @@ public class Feedback
         }
     }
 
-    private int _supportID;
+    private string _supportID;
 
-    public int SupportID
+    public string SupportID
     {
         get { return _supportID; }
         set
@@ -105,9 +106,11 @@ public class Feedback
     
     public string FormatFeedback()
     {
-        var resultString = "Feedback for " + this.SoftwareID + 
-                              " closed " + this.DateClosed + 
-                              "(" + this.Title + ")";
+        var dateClosed = this.DateClosed.Split();
+       
+        var resultString = "Feedback for software " + this.SoftwareID + 
+                              " closed " + dateClosed[0] + 
+                              " (" + this.Title + ")";
         return resultString;
     }
 }

@@ -65,21 +65,22 @@ public partial class CustomerFeedback : Page
         {
             return;
         }
-        feedbackTable.RowFilter =
-            "CustomerID = '" + Convert.ToInt32(this.txtCustomerID.Text) + "'";
-        DataRowView row = (DataRowView)feedbackTable[0];
+
+        feedbackTable.RowFilter = "CustomerID = '" + this.txtCustomerID.Text + "'";
+        var row = feedbackTable[0];
 
         this.currentFeedback = new Feedback
         {
-            CustomerId = Convert.ToInt32(row["CustomerID"]),
-            SoftwareID = Convert.ToInt32(row["SoftwareID"]),
-            SupportID = Convert.ToInt32(row["SuuportID"]),
-            FeedbackId = Convert.ToInt32(row["FeedbackID"]),
+            CustomerId = row["CustomerID"].ToString(),
+            SoftwareID = row["SoftwareID"].ToString(),
+            SupportID = row["SupportID"].ToString(),
+            FeedbackId = row["FeedbackID"].ToString(),
             DateOpened = row["DateOpened"].ToString(),
             DateClosed = row["DateClosed"].ToString(),
             Title = row["Title"].ToString(),
             Description = row["Description"].ToString()
         };
+
         this.lbClosedFeedbackList.Items.Add(this.currentFeedback.FormatFeedback());
         this.ToggleControls(true);
     }
