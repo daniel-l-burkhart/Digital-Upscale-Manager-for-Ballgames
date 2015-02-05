@@ -46,17 +46,17 @@
         <asp:Label ID="lblContactValue" runat="server"></asp:Label> <br/><br/>
 
         <asp:Label ID="lblContactHow" runat="server" Text="Preferred Contact Method: " CssClass="bold"></asp:Label>
-        <asp:Label ID="lblPreferredContactMentod" runat="server"></asp:Label> 
-        <br />
-        <br />
-        <asp:Button ID="btnReturnToFeedbackPage" runat="server" OnClick="btnReturnToFeedbackPage_Click" Text="Return to feedback page" />
+        <asp:Label ID="lblPreferredContactMentod" runat="server"></asp:Label>
+        <br/>
+        <br/>
+        <asp:Button ID="btnReturnToFeedbackPage" runat="server" OnClick="btnReturnToFeedbackPage_Click" Text="Return to feedback page"/>
         <br/>
     </div>
-    
-    <div id ="ReturnToHomePage">
-        
-        <asp:Button ID="lblReturnToHomePage" runat="server" OnClick="lblReturnToHomePage_Click" Text="Return to Home Page" />
-        
+
+    <div id="ReturnToHomePage">
+
+        <asp:Button ID="lblReturnToHomePage" runat="server" OnClick="lblReturnToHomePage_Click" Text="Return to Home Page"/>
+
     </div>
 </form>
 </body>

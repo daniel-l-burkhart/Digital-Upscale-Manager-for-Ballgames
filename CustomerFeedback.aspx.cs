@@ -41,11 +41,10 @@ public partial class CustomerFeedback : Page
 
         this._feedbackList = new List<Feedback>();
         this.lblCustomerIDNotInList.Text = string.Empty;
-        
     }
 
     /// <summary>
-    /// Clears the input fields.
+    ///     Clears the input fields.
     /// </summary>
     private void ClearInputFields()
     {
@@ -162,7 +161,8 @@ public partial class CustomerFeedback : Page
         this._feedbackList.Sort((a, b) => String.Compare(b.DateClosed, a.DateClosed, StringComparison.Ordinal));
         foreach (var currentFeedback in this._feedbackList)
         {
-            this.lbClosedFeedbackList.Items.Add(new ListItem(currentFeedback.FormatFeedback(), currentFeedback.FeedbackId)); 
+            this.lbClosedFeedbackList.Items.Add(new ListItem(currentFeedback.FormatFeedback(),
+                currentFeedback.FeedbackId));
         }
     }
 

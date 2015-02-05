@@ -82,20 +82,20 @@ public partial class FeedbackComplete : Page
     }
 
     /// <summary>
-    /// Handles the Click event of the lblReturnToHomePage control.
+    ///     Handles the Click event of the lblReturnToHomePage control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
-    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void lblReturnToHomePage_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/HomePage.aspx");
     }
 
     /// <summary>
-    /// Handles the Click event of the btnReturnToFeedbackPage control.
+    ///     Handles the Click event of the btnReturnToFeedbackPage control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
-    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnReturnToFeedbackPage_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/CustomerFeedback.aspx");

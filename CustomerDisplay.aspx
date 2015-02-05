@@ -32,23 +32,23 @@
             <asp:Label ID="lblZipCode" runat="server"></asp:Label>
             <asp:Label ID="lblPhoneLabel" runat="server" CssClass="bold" Text="Phone Number:"></asp:Label>
             <asp:Label ID="lblPhone" runat="server" Width="111px"></asp:Label>
-            <br />
+            <br/>
             <asp:Label ID="lblEmailLabel" runat="server" CssClass="bold" Text="Email: "></asp:Label>
             <asp:Label ID="lblEmail" runat="server" Width="111px"></asp:Label>
-            <br />
-            <br />
-            <br />
+            <br/>
+            <br/>
+            <br/>
             <br/>
             <asp:Button ID="btnAddToContacts" runat="server" OnClick="btnAddToContacts_Click" Text="Add to Contacts" Width="143px"/>
             <asp:Button ID="btnViewContactList" runat="server" OnClick="btnViewContactList_Click" Text="View Contact List"/>
             <br/>
-            <br />
+            <br/>
             <asp:Label ID="lblMessage" runat="server" CssClass="validator"></asp:Label>
-            <br />
             <br/>
             <br/>
-            <br />
-            <br />
+            <br/>
+            <br/>
+            <br/>
             <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click"/>
 
         </div>

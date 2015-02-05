@@ -32,7 +32,7 @@
         <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" Width="676px">
             <asp:ListItem></asp:ListItem>
         </asp:ListBox>
-        <br />
+        <br/>
         <asp:RequiredFieldValidator ID="rfvListBoxValidator" runat="server" ControlToValidate="lbClosedFeedbackList" CssClass="validator" Display="Dynamic" ErrorMessage="Please select a certain ticket to give feedback." ValidationGroup="secondValidation"></asp:RequiredFieldValidator>
     </div>
     <div>
