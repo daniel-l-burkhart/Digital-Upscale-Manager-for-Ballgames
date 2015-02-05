@@ -41,7 +41,7 @@ section {
 
 
 .validator {
-    color: red;
+    color: rgb(255, 0, 0);
     margin-left: 1em;
 }
 

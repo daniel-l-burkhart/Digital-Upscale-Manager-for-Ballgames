@@ -1,44 +1,47 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
+/// <summary>
+/// The code behind for the Customer feedback page
+/// </summary>
 /// <author>
-///     Daniel Burkhart
+/// Daniel Burkhart
 /// </author>
 /// <version>
-///     2/5/15
+/// 2/5/15
 /// </version>
-/// <summary>
-///     The code behind for the Customer feedback page
-/// </summary>
 public partial class CustomerFeedback : Page
 {
     /// <summary>
-    ///     The _current feedback
+    /// The _current feedback
     /// </summary>
     private Feedback _currentFeedback;
 
     /// <summary>
-    ///     The _description list
+    /// The _feedback list
     /// </summary>
-    private DescriptionList _descriptionList;
+    private List<Feedback> _feedbackList;
 
     /// <summary>
-    ///     Handles the Load event of the Page control.
+    /// Handles the Load event of the Page control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
-        this._descriptionList = new DescriptionList();
         if (!IsPostBack)
         {
             this.ToggleControls(false);
         }
+        this._feedbackList = new List<Feedback>();
+        this.lblCustomerIDNotInList.Text = string.Empty;
     }
 
     /// <summary>
-    ///     Toggles the controls.
+    /// Toggles the controls.
     /// </summary>
     /// <param name="enableOrDisable">if set to <c>true</c> [enable or disable].</param>
     private void ToggleControls(bool enableOrDisable)
@@ -59,7 +62,7 @@ public partial class CustomerFeedback : Page
     }
 
     /// <summary>
-    ///     Handles the Click event of the btnForCustomerIDSearch control.
+    /// Handles the Click event of the btnForCustomerIDSearch control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -91,32 +94,62 @@ public partial class CustomerFeedback : Page
         }
     }
 
+    /// <summary>
+    /// Finds the feed back.
+    /// </summary>
+    /// <param name="feedbackTable">The feedback table.</param>
     private void FindFeedBack(DataView feedbackTable)
     {
         this.lbClosedFeedbackList.Items.Clear();
-        var row = feedbackTable[0];
-
-        if (row != null)
+        for (var i = 0; i<feedbackTable.Count; i++)
         {
-            this._currentFeedback = new Feedback
+            var row = feedbackTable[i];
+
+            if (row != null)
             {
-                CustomerId = row["CustomerID"].ToString(),
-                SoftwareId = row["SoftwareID"].ToString(),
-                SupportId = row["SupportID"].ToString(),
-                FeedbackId = row["FeedbackID"].ToString(),
-                DateOpened = row["DateOpened"].ToString(),
-                DateClosed = row["DateClosed"].ToString(),
-                Title = row["Title"].ToString(),
-                Description = row["Description"].ToString()
-            };
+                this._currentFeedback = new Feedback
+                {
+                    CustomerId = row["CustomerID"].ToString(),
+                    SoftwareId = row["SoftwareID"].ToString(),
+                    SupportId = row["SupportID"].ToString(),
+                    FeedbackId = row["FeedbackID"].ToString(),
+                    DateOpened = row["DateOpened"].ToString(),
+                    DateClosed = row["DateClosed"].ToString(),
+                    Title = row["Title"].ToString(),
+                    Description = row["Description"].ToString()
+                };
+            }
+            this.AddToList(this._currentFeedback);
         }
 
-        this.lbClosedFeedbackList.Items.Add(this._currentFeedback.FormatFeedback());
+
+        this.SortFeedbackList();
         this.ToggleControls(true);
     }
 
     /// <summary>
-    ///     Handles the Click event of the btnHomeButton control.
+    /// Adds to list.
+    /// </summary>
+    /// <param name="currentFeedback">The current feedback.</param>
+    private void AddToList(Feedback currentFeedback)
+    {
+        this._feedbackList.Add(currentFeedback);
+    }
+
+    /// <summary>
+    /// Sorts the feedback list.
+    /// </summary>
+    private void SortFeedbackList()
+    {
+        this._feedbackList.Sort((a, b) => String.Compare(b.DateClosed, a.DateClosed, StringComparison.Ordinal));
+        foreach (var currentFeedback in this._feedbackList)
+        {
+            this.lbClosedFeedbackList.Items.Add(currentFeedback.FormatFeedback());
+        }
+    }
+
+    /// <summary>
+    /// Handles the Click event of the btnHomeButton control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -126,7 +159,7 @@ public partial class CustomerFeedback : Page
     }
 
     /// <summary>
-    ///     Handles the Click event of the btnSubmit control.
+    /// Handles the Click event of the btnSubmit control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -141,7 +174,6 @@ public partial class CustomerFeedback : Page
             Contact = this.cbContact.Checked,
             ContactMethod = this.rblHowToContact.SelectedValue
         };
-        this._descriptionList.AddFeedBackToList(feedback);
         Session["BooleanValueContact"] = this.cbContact.Checked;
         Response.Redirect("~/FeedbackComplete.aspx");
     }
