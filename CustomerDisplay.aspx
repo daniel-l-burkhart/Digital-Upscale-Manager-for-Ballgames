@@ -14,7 +14,7 @@
 </header>
 <section>
     <form id="form1" runat="server">
-        
+
         <h3>Please select a Customer</h3>
         <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Customer]"></asp:AccessDataSource>
         <br/>
@@ -39,15 +39,15 @@
             <asp:Button ID="btnAddToContacts" runat="server" OnClick="btnAddToContacts_Click" Text="Add to Contacts" Width="143px"/>
             <asp:Button ID="btnViewContactList" runat="server" OnClick="btnViewContactList_Click" Text="View Contact List"/>
             <br/>
+            <asp:Label ID="lblMessage" runat="server" CssClass="validator"></asp:Label>
             <br/>
             <br/>
-            <br/>
-            <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click" />
+            <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click"/>
 
         </div>
 
     </form>
-   
+
 </section>
 </body>
 </html>

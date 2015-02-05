@@ -2,15 +2,15 @@
 using System.Data;
 using System.Web.UI;
 
+/// <summary>
+///     Page that displays the information of the customer after it is selected
+/// </summary>
 /// <author>
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     Spring 2015
+///     2/5/15
 /// </version>
-/// <summary>
-///     Page that displays the information of the customer after it is selected
-/// </summary>
 public partial class CustomerDisplay : Page
 {
     /// <summary>
@@ -21,7 +21,9 @@ public partial class CustomerDisplay : Page
     /// <summary>
     ///     Selecteds the customer.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>
+    ///     The selected customer.
+    /// </returns>
     private Customer SelectedCustomer()
     {
         var customerTable = (DataView)
@@ -73,6 +75,11 @@ public partial class CustomerDisplay : Page
         this.lblEmail.Text = this._currentCustomer.EmailAddress;
     }
 
+    /// <summary>
+    ///     Handles the Click event of the btnAddToContacts control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnAddToContacts_Click(object sender, EventArgs e)
     {
         if (!Page.IsValid)
@@ -84,24 +91,38 @@ public partial class CustomerDisplay : Page
         if (customerItem == null)
         {
             customerList.AddCustomer(this._currentCustomer);
+            Response.Redirect("~/ContactList.aspx");
         }
         else
         {
-            this.alreadyBeenAdded();
+            this.AlreadyBeenAdded();
         }
-        Response.Redirect("ContactList.aspx");
     }
 
-    private void alreadyBeenAdded()
+    /// <summary>
+    ///     runs if customer has already been added to list.
+    /// </summary>
+    private void AlreadyBeenAdded()
     {
+        this.lblMessage.Text =
+            "This customer has already been added</br> to the list.</br> Please select another customer.";
     }
 
+    /// <summary>
+    ///     Handles the Click event of the btnViewContactList control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnViewContactList_Click(object sender, EventArgs e)
     {
         Response.Redirect("ContactList.aspx");
     }
 
- 
+    /// <summary>
+    ///     Handles the Click event of the btnHomeButton control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnHomeButton_Click(object sender, EventArgs e)
     {
         Response.Redirect("HomePage.aspx");

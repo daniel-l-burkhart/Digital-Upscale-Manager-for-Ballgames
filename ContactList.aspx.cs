@@ -47,10 +47,8 @@ public partial class ContactList : Page
         this._customerList.CustomerListSort();
         for (var i = 0; i < this._customerList.Count; i++)
         {
-            
             var customerForList = this._customerList[i];
             this.firstCustomerList.Items.Add(customerForList.Display());
-            
         }
     }
 
@@ -99,14 +97,14 @@ public partial class ContactList : Page
     }
 
     /// <summary>
-    /// Handles the Click event of the btnHomeButton control.
+    ///     Handles the Click event of the btnHomeButton control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
-    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnHomeButton_Click(object sender, EventArgs e)
     {
         Response.Redirect("HomePage.aspx");
     }
+
     #endregion
-   
 }

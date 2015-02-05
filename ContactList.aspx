@@ -34,9 +34,9 @@
         </div>
         <br/>
         <br/>
-        <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" />
+        <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page"/>
     </form>
 </section>
-    
+
 </body>
 </html>

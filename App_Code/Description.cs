@@ -53,8 +53,6 @@ public class Description
         }
     }
 
-    private int _efficiency;
-
     public int Efficiency
     {
         get { return this._efficiency; }
@@ -64,7 +62,6 @@ public class Description
             this._efficiency = value;
         }
     }
-    
 
     /// <summary>
     ///     Gets or sets the resolution.
@@ -149,6 +146,8 @@ public class Description
     ///     The _customer identifier
     /// </summary>
     private int _customerId;
+
+    private int _efficiency;
 
     /// <summary>
     ///     The _feedback identifier

@@ -1,88 +1,55 @@
 ﻿using System.Diagnostics;
 
 /// <author>
-/// Daniel Burkhart
+///     Daniel Burkhart
 /// </author>
 /// <version>
-/// 2/5/15
+///     2/5/15
 /// </version>
 /// <summary>
-/// Summary description for Feedback
+///     Summary description for Feedback
 /// </summary>
 public class Feedback
 {
     /// <summary>
-    /// The _customer identifier
-    /// </summary>
-    private string _customerID;
-    /// <summary>
-    /// The _date closed
-    /// </summary>
-    private string _dateClosed;
-    /// <summary>
-    /// The _date opened
-    /// </summary>
-    private string _dateOpened;
-    /// <summary>
-    /// The _description
-    /// </summary>
-    private string _description;
-    /// <summary>
-    /// The _feedback identifier
-    /// </summary>
-    private string _feedbackID;
-    /// <summary>
-    /// The _software identifier
-    /// </summary>
-    private string _softwareId;
-    /// <summary>
-    /// The _support identifier
-    /// </summary>
-    private string _supportID;
-    /// <summary>
-    /// The _title
-    /// </summary>
-    private string _title;
-
-    /// <summary>
-    /// Gets or sets the feedback identifier.
+    ///     Gets or sets the feedback identifier.
     /// </summary>
     /// <value>
-    /// The feedback identifier.
+    ///     The feedback identifier.
     /// </value>
     public string FeedbackId
     {
-        get { return this._feedbackID; }
+        get { return this._feedbackId; }
         set
         {
             Trace.Assert(value != null, "Invalid Data");
-            this._feedbackID = value;
+            this._feedbackId = value;
         }
     }
 
     /// <summary>
-    /// Gets or sets the customer identifier.
+    ///     Gets or sets the customer identifier.
     /// </summary>
     /// <value>
-    /// The customer identifier.
+    ///     The customer identifier.
     /// </value>
     public string CustomerId
     {
-        get { return this._customerID; }
+        get { return this._customerId; }
         set
         {
             Trace.Assert(value != null, "Invalid Data");
-            this._customerID = value;
+            this._customerId = value;
         }
     }
 
     /// <summary>
-    /// Gets or sets the software identifier.
+    ///     Gets or sets the software identifier.
     /// </summary>
     /// <value>
-    /// The software identifier.
+    ///     The software identifier.
     /// </value>
-    public string SoftwareID
+    public string SoftwareId
     {
         get { return this._softwareId; }
         set
@@ -93,26 +60,26 @@ public class Feedback
     }
 
     /// <summary>
-    /// Gets or sets the support identifier.
+    ///     Gets or sets the support identifier.
     /// </summary>
     /// <value>
-    /// The support identifier.
+    ///     The support identifier.
     /// </value>
-    public string SupportID
+    public string SupportId
     {
-        get { return this._supportID; }
+        get { return this._supportId; }
         set
         {
             Trace.Assert(value != null, "Invalid Data");
-            this._supportID = value;
+            this._supportId = value;
         }
     }
 
     /// <summary>
-    /// Gets or sets the date opened.
+    ///     Gets or sets the date opened.
     /// </summary>
     /// <value>
-    /// The date opened.
+    ///     The date opened.
     /// </value>
     public string DateOpened
     {
@@ -125,10 +92,10 @@ public class Feedback
     }
 
     /// <summary>
-    /// Gets or sets the date closed.
+    ///     Gets or sets the date closed.
     /// </summary>
     /// <value>
-    /// The date closed.
+    ///     The date closed.
     /// </value>
     public string DateClosed
     {
@@ -141,10 +108,10 @@ public class Feedback
     }
 
     /// <summary>
-    /// Gets or sets the title.
+    ///     Gets or sets the title.
     /// </summary>
     /// <value>
-    /// The title.
+    ///     The title.
     /// </value>
     public string Title
     {
@@ -157,10 +124,10 @@ public class Feedback
     }
 
     /// <summary>
-    /// Gets or sets the description.
+    ///     Gets or sets the description.
     /// </summary>
     /// <value>
-    /// The description.
+    ///     The description.
     /// </value>
     public string Description
     {
@@ -173,14 +140,54 @@ public class Feedback
     }
 
     /// <summary>
-    /// Formats the feedback.
+    ///     The _customer identifier
+    /// </summary>
+    private string _customerId;
+
+    /// <summary>
+    ///     The _date closed
+    /// </summary>
+    private string _dateClosed;
+
+    /// <summary>
+    ///     The _date opened
+    /// </summary>
+    private string _dateOpened;
+
+    /// <summary>
+    ///     The _description
+    /// </summary>
+    private string _description;
+
+    /// <summary>
+    ///     The _feedback identifier
+    /// </summary>
+    private string _feedbackId;
+
+    /// <summary>
+    ///     The _software identifier
+    /// </summary>
+    private string _softwareId;
+
+    /// <summary>
+    ///     The _support identifier
+    /// </summary>
+    private string _supportId;
+
+    /// <summary>
+    ///     The _title
+    /// </summary>
+    private string _title;
+
+    /// <summary>
+    ///     Formats the feedback.
     /// </summary>
     /// <returns></returns>
     public string FormatFeedback()
     {
         var dateClosed = this.DateClosed.Split();
 
-        var resultString = "Feedback for software " + this.SoftwareID +
+        var resultString = "Feedback for software " + this.SoftwareId +
                            " closed " + dateClosed[0] +
                            " (" + this.Title + ")";
         return resultString;
