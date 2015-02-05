@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 /// <summary>
 ///     The code behind for the Customer feedback page
@@ -31,10 +32,15 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
-        this.ToggleControls(false);
+        if (!IsPostBack)
+        {
+            this.ToggleControls(false);
+            this.lbClosedFeedbackList.Items.Clear();
+        }
 
         this._feedbackList = new List<Feedback>();
         this.lblCustomerIDNotInList.Text = string.Empty;
+        
     }
 
     /// <summary>
@@ -84,6 +90,7 @@ public partial class CustomerFeedback : Page
         if (feedbackTable.Count <= 0)
         {
             this.lblCustomerIDNotInList.Text = "This customer ID is not in the list. Please try again.";
+            this.ToggleControls(false);
         }
         else if (feedbackTable.Count > 0)
         {
@@ -140,7 +147,7 @@ public partial class CustomerFeedback : Page
         this._feedbackList.Sort((a, b) => String.Compare(b.DateClosed, a.DateClosed, StringComparison.Ordinal));
         foreach (var currentFeedback in this._feedbackList)
         {
-            this.lbClosedFeedbackList.Items.Add(currentFeedback.FormatFeedback());
+            this.lbClosedFeedbackList.Items.Add(new ListItem(currentFeedback.FormatFeedback(), currentFeedback.FeedbackId)); 
         }
     }
 

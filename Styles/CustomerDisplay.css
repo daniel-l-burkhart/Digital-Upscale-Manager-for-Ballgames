@@ -41,9 +41,12 @@ section {
 
 
 .validator {
+    float: left;
     color: rgb(255, 0, 0);
     margin-left: 1em;
 }
+
+.bold{ font-weight: bold;}
 
 #btnAddToContacts { float: left; }
 

@@ -20,10 +20,10 @@
     <div id="customerIDSearch">
         <asp:Label ID="lblCustomerId" runat="server" Text="Insert Customer ID:"></asp:Label>
         <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="rfvCustomerID" runat="server" ControlToValidate="txtCustomerID" CssClass="validator" Display="Dynamic" ErrorMessage="Must enter a customer ID"></asp:RequiredFieldValidator>
-        <asp:CompareValidator ID="cvCustomerIDValidator" runat="server" ControlToValidate="txtCustomerID" Display="Dynamic" ErrorMessage="Must be a valid Customer ID" Operator="DataTypeCheck" Type="Integer" CssClass="validator"></asp:CompareValidator>
+        <asp:RequiredFieldValidator ID="rfvCustomerID" runat="server" ControlToValidate="txtCustomerID" CssClass="validator" Display="Dynamic" ErrorMessage="Must enter a customer ID" ValidationGroup="firstValidation"></asp:RequiredFieldValidator>
+        <asp:CompareValidator ID="cvCustomerIDValidator" runat="server" ControlToValidate="txtCustomerID" Display="Dynamic" ErrorMessage="Must be a valid Customer ID" Operator="DataTypeCheck" Type="Integer" CssClass="validator" ValidationGroup="firstValidation"></asp:CompareValidator>
         <br/>
-        <asp:Button ID="btnForCustomerIDSearch" runat="server" Text="Submit Customer ID." OnClick="btnForCustomerIDSearch_Click"/>
+        <asp:Button ID="btnForCustomerIDSearch" runat="server" Text="Submit Customer ID." OnClick="btnForCustomerIDSearch_Click" ValidationGroup="firstValidation"/>
         <br/>
         <br/>
         <asp:Label ID="lblCustomerIDNotInList" runat="server" CssClass="validator"></asp:Label>
@@ -32,6 +32,8 @@
         <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" Width="676px">
             <asp:ListItem></asp:ListItem>
         </asp:ListBox>
+        <br />
+        <asp:RequiredFieldValidator ID="rfvListBoxValidator" runat="server" ControlToValidate="lbClosedFeedbackList" CssClass="validator" Display="Dynamic" ErrorMessage="Please select a certain ticket to give feedback." ValidationGroup="secondValidation"></asp:RequiredFieldValidator>
     </div>
     <div>
         <asp:Label ID="lblRatings" runat="server" Text="Ratings"></asp:Label>
@@ -72,7 +74,7 @@
             <asp:ListItem>Email</asp:ListItem>
         </asp:RadioButtonList>
         <br/>
-        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"/>
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" ValidationGroup="secondValidation"/>
         <br/>
         <br/>
         <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" CausesValidation="False"/>

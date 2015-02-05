@@ -24,15 +24,15 @@ public partial class FeedbackComplete : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (Session["BooleanValueContact"] == null || Session["GivenFeedback"] == null)
+        {
+            return;
+        }
         if (Session["BooleanValueContact"].Equals(true))
         {
             this.lblContacted.Text = "Someone will be in contact with you shortly.";
         }
 
-        if (Session["GivenFeedback"] == null)
-        {
-            return;
-        }
         this._descriptionDetails = (Description) Session["GivenFeedback"];
         this.DisplayFeedback();
     }
@@ -79,5 +79,15 @@ public partial class FeedbackComplete : Page
                 return "Dissatisfied";
         }
         return null;
+    }
+
+    /// <summary>
+    /// Handles the Click event of the lblReturnToHomePage control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    protected void lblReturnToHomePage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/HomePage.aspx");
     }
 }

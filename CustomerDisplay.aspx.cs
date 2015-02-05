@@ -105,7 +105,7 @@ public partial class CustomerDisplay : Page
     private void AlreadyBeenAdded()
     {
         this.lblMessage.Text =
-            "This customer has already been added</br> to the list.</br> Please select another customer.";
+            "This customer has already  <br/> been added to the list. <br/> Please select another customer.";
     }
 
     /// <summary>
