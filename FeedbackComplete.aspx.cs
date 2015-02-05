@@ -90,4 +90,14 @@ public partial class FeedbackComplete : Page
     {
         Response.Redirect("~/HomePage.aspx");
     }
+
+    /// <summary>
+    /// Handles the Click event of the btnReturnToFeedbackPage control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    protected void btnReturnToFeedbackPage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/CustomerFeedback.aspx");
+    }
 }

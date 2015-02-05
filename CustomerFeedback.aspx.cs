@@ -34,13 +34,28 @@ public partial class CustomerFeedback : Page
     {
         if (!IsPostBack)
         {
+            this.ClearInputFields();
+
             this.ToggleControls(false);
-            this.lbClosedFeedbackList.Items.Clear();
         }
 
         this._feedbackList = new List<Feedback>();
         this.lblCustomerIDNotInList.Text = string.Empty;
         
+    }
+
+    /// <summary>
+    /// Clears the input fields.
+    /// </summary>
+    private void ClearInputFields()
+    {
+        this.lbClosedFeedbackList.Items.Clear();
+        this.rblServiceTime.ClearSelection();
+        this.rblTechnicalEfficiency.ClearSelection();
+        this.rblProblemResolution.ClearSelection();
+        this.txtAdditionalComments.Text = string.Empty;
+        this.cbContact.Checked = false;
+        this.rblHowToContact.ClearSelection();
     }
 
     /// <summary>
