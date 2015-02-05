@@ -9,7 +9,9 @@ using System.Web;
 ///     2/5/15
 /// </version>
 /// <summary>
-///     The list class that holds all the customers that the user adds to the list on the CustomerDisplay Page.
+///     The list class that holds all the
+///     customers that the user adds to the
+///     list on the CustomerDisplay Page.
 /// </summary>
 public class CustomerList
 {

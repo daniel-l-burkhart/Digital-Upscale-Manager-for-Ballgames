@@ -11,6 +11,8 @@
 /// </summary>
 public class CustomerListItem
 {
+    #region Property
+
     /// <summary>
     ///     Gets or sets the customer.
     /// </summary>
@@ -27,10 +29,18 @@ public class CustomerListItem
         }
     }
 
+    #endregion
+
+    #region Instance Variable
+
     /// <summary>
     ///     The _customer
     /// </summary>
     private Customer _customer;
+
+    #endregion
+
+    #region Constructor
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="CustomerListItem" /> class.
@@ -40,6 +50,10 @@ public class CustomerListItem
     {
         this.Customer = cusomter;
     }
+
+    #endregion
+
+    #region Method
 
     /// <summary>
     ///     Displays this instance in a string format to be used by the list page.
@@ -54,4 +68,6 @@ public class CustomerListItem
                                + "; " + this.Customer.EmailAddress;
         return stringForDisplay;
     }
+
+    #endregion
 }

@@ -12,6 +12,8 @@ using System.Web.UI;
 /// </summary>
 public partial class HomePage : Page
 {
+    #region PageLoad Method
+
     /// <summary>
     ///     Handles the Load event of the Page control.
     /// </summary>
@@ -20,6 +22,10 @@ public partial class HomePage : Page
     protected void Page_Load(object sender, EventArgs e)
     {
     }
+
+    #endregion
+
+    #region Methods
 
     /// <summary>
     ///     Handles the Click event of the btnBuildContactList control.
@@ -40,4 +46,6 @@ public partial class HomePage : Page
     {
         Response.Redirect("CustomerFeedback.aspx");
     }
+
+    #endregion
 }

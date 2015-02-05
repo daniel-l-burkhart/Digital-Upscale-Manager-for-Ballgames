@@ -11,6 +11,8 @@
 /// </summary>
 public class Description
 {
+    #region Properties
+
     /// <summary>
     ///     Gets or sets the customer identifier.
     /// </summary>
@@ -133,6 +135,10 @@ public class Description
         }
     }
 
+    #endregion
+
+    #region Instance Variables
+
     /// <summary>
     ///     The _comments
     /// </summary>
@@ -169,4 +175,6 @@ public class Description
     ///     The _service time
     /// </summary>
     private int _serviceTime;
+
+    #endregion
 }

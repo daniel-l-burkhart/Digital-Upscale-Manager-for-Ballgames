@@ -12,6 +12,8 @@ using System.Collections.Generic;
 /// </summary>
 public class LastNameCustomerSort : IComparer<CustomerListItem>
 {
+    #region Compare Method
+
     public int Compare(CustomerListItem firstCustomer, CustomerListItem secondCustomer)
     {
         var firstCustomerName = firstCustomer.Customer.CustomerName.Split();
@@ -20,4 +22,6 @@ public class LastNameCustomerSort : IComparer<CustomerListItem>
         var secondCustomerLastName = secondCustomername[1];
         return String.Compare(firstCustomerLastName, secondCustomerLastName, StringComparison.Ordinal);
     }
+
+    #endregion
 }

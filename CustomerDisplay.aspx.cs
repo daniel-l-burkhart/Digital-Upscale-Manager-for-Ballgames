@@ -13,10 +13,43 @@ using System.Web.UI;
 /// </summary>
 public partial class CustomerDisplay : Page
 {
+    #region Instance Variable
+
     /// <summary>
     ///     The _current customer
     /// </summary>
     private Customer _currentCustomer;
+
+    #endregion
+
+    #region PageLoad Method
+
+    /// <summary>
+    ///     Handles the Load event of the Page control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (!IsPostBack)
+        {
+            this.ddlCustomerList.DataBind();
+        }
+
+        this._currentCustomer = this.SelectedCustomer();
+
+        this.lblName.Text = this._currentCustomer.CustomerName;
+        this.lblAddress.Text = this._currentCustomer.Address;
+        this.lblCity.Text = this._currentCustomer.City + ",";
+        this.lblState.Text = this._currentCustomer.State;
+        this.lblZipCode.Text = this._currentCustomer.ZipCode;
+        this.lblPhone.Text = this._currentCustomer.PhoneNumber;
+        this.lblEmail.Text = this._currentCustomer.EmailAddress;
+    }
+
+    #endregion
+
+    #region Methods
 
     /// <summary>
     ///     Selecteds the customer.
@@ -50,29 +83,6 @@ public partial class CustomerDisplay : Page
         };
 
         return selectedCustomer;
-    }
-
-    /// <summary>
-    ///     Handles the Load event of the Page control.
-    /// </summary>
-    /// <param name="sender">The source of the event.</param>
-    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (!IsPostBack)
-        {
-            this.ddlCustomerList.DataBind();
-        }
-
-        this._currentCustomer = this.SelectedCustomer();
-
-        this.lblName.Text = this._currentCustomer.CustomerName;
-        this.lblAddress.Text = this._currentCustomer.Address;
-        this.lblCity.Text = this._currentCustomer.City + ",";
-        this.lblState.Text = this._currentCustomer.State;
-        this.lblZipCode.Text = this._currentCustomer.ZipCode;
-        this.lblPhone.Text = this._currentCustomer.PhoneNumber;
-        this.lblEmail.Text = this._currentCustomer.EmailAddress;
     }
 
     /// <summary>
@@ -127,4 +137,6 @@ public partial class CustomerDisplay : Page
     {
         Response.Redirect("HomePage.aspx");
     }
+
+    #endregion
 }

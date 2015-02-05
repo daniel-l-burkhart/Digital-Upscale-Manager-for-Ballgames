@@ -11,6 +11,26 @@
 /// </summary>
 public class Feedback
 {
+    #region Method
+
+    /// <summary>
+    ///     Formats the feedback.
+    /// </summary>
+    /// <returns></returns>
+    public string FormatFeedback()
+    {
+        var dateClosed = this.DateClosed.Split();
+
+        var resultString = "Feedback for software " + this.SoftwareId +
+                           " closed " + dateClosed[0] +
+                           " (" + this.Title + ")";
+        return resultString;
+    }
+
+    #endregion
+
+    #region Properties
+
     /// <summary>
     ///     Gets or sets the feedback identifier.
     /// </summary>
@@ -139,6 +159,10 @@ public class Feedback
         }
     }
 
+    #endregion
+
+    #region Instance Variables
+
     /// <summary>
     ///     The _customer identifier
     /// </summary>
@@ -179,17 +203,5 @@ public class Feedback
     /// </summary>
     private string _title;
 
-    /// <summary>
-    ///     Formats the feedback.
-    /// </summary>
-    /// <returns></returns>
-    public string FormatFeedback()
-    {
-        var dateClosed = this.DateClosed.Split();
-
-        var resultString = "Feedback for software " + this.SoftwareId +
-                           " closed " + dateClosed[0] +
-                           " (" + this.Title + ")";
-        return resultString;
-    }
+    #endregion
 }

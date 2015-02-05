@@ -12,10 +12,16 @@ using System.Web.UI;
 /// </summary>
 public partial class FeedbackComplete : Page
 {
+    #region Instance Variable
+
     /// <summary>
     ///     The _description details
     /// </summary>
     private Description _descriptionDetails;
+
+    #endregion
+
+    #region PageLoad Method
 
     /// <summary>
     ///     Handles the Load event of the Page control.
@@ -36,6 +42,10 @@ public partial class FeedbackComplete : Page
         this._descriptionDetails = (Description) Session["GivenFeedback"];
         this.DisplayFeedback();
     }
+
+    #endregion
+
+    #region Methods
 
     /// <summary>
     ///     Displays the feedback.
@@ -100,4 +110,6 @@ public partial class FeedbackComplete : Page
     {
         Response.Redirect("~/CustomerFeedback.aspx");
     }
+
+    #endregion
 }
