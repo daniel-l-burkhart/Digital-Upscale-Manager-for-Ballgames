@@ -4,7 +4,7 @@
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     Spring 2015
+///     2/5/15
 /// </version>
 /// <summary>
 ///     Each item of the list that holds the customers.

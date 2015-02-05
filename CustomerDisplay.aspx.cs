@@ -2,15 +2,15 @@
 using System.Data;
 using System.Web.UI;
 
-/// <summary>
-///     Page that displays the information of the customer after it is selected
-/// </summary>
 /// <author>
 ///     Daniel Burkhart
 /// </author>
 /// <version>
 ///     2/5/15
 /// </version>
+/// <summary>
+///     Page that displays the information of the customer after it is selected
+/// </summary>
 public partial class CustomerDisplay : Page
 {
     /// <summary>

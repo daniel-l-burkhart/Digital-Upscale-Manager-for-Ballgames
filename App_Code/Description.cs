@@ -1,5 +1,11 @@
 ﻿using System.Diagnostics;
 
+/// <author>
+///     Daniel Burkhart
+/// </author>
+/// <version>
+///     2/5/15
+/// </version>
 /// <summary>
 ///     Summary description for Description
 /// </summary>

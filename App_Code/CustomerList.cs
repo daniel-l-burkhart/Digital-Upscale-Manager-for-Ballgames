@@ -6,7 +6,7 @@ using System.Web;
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     Spring 2015
+///     2/5/15
 /// </version>
 /// <summary>
 ///     The list class that holds all the customers that the user adds to the list on the CustomerDisplay Page.

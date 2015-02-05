@@ -4,7 +4,7 @@
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     Spring 2015
+///     2/5/15
 /// </version>
 /// <summary>
 ///     Attributes and description for Customer

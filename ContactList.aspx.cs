@@ -5,7 +5,7 @@ using System.Web.UI;
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     Spring 2015
+///     2/5/15
 /// </version>
 /// <summary>
 ///     The code for the page that allows the user to view their current contact list and edit or clear that list.

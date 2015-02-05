@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 /// <author>
 ///     Daniel Burkhart
@@ -12,9 +11,6 @@ using System.Diagnostics;
 /// </summary>
 public class Feedback
 {
-
-    private List<Feedback> feedbackList = new List<Feedback>(); 
-
     /// <summary>
     ///     Gets or sets the feedback identifier.
     /// </summary>
@@ -196,10 +192,4 @@ public class Feedback
                            " (" + this.Title + ")";
         return resultString;
     }
-
-    public void AddFeedbackToList(Feedback currentFeedback)
-    {
-        this.feedbackList.Add(currentFeedback);
-    }
-
 }

@@ -40,12 +40,12 @@
             <asp:Label ID="lblMessage" runat="server" CssClass="validator"></asp:Label>
             <br/>
             <br/>
-            <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click" />
+            <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click"/>
 
         </div>
 
     </form>
-   
+
 </section>
 </body>
 </html>

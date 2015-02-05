@@ -13,15 +13,71 @@ using System.Web.UI;
 public partial class FeedbackComplete : Page
 {
     /// <summary>
-    /// Handles the Load event of the Page control.
+    ///     The _description details
+    /// </summary>
+    private Description _descriptionDetails;
+
+    /// <summary>
+    ///     Handles the Load event of the Page control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
-    /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["BooleanValueContact"].Equals(true))
         {
             this.lblContacted.Text = "Someone will be in contact with you shortly.";
         }
+
+        if (Session["GivenFeedback"] == null)
+        {
+            return;
+        }
+        this._descriptionDetails = (Description) Session["GivenFeedback"];
+        this.DisplayFeedback();
+    }
+
+    /// <summary>
+    ///     Displays the feedback.
+    /// </summary>
+    private void DisplayFeedback()
+    {
+        this.lblCustomerID.Text = this._descriptionDetails.CustomerId.ToString();
+
+        this.lblServiceTimeValue.Text = this.DetermineRatingString(this._descriptionDetails.SericeTime);
+        this.lblEfficiencyValue.Text = this.DetermineRatingString(this._descriptionDetails.Efficiency);
+        this.lblProblemResolutionValue.Text = this.DetermineRatingString(this._descriptionDetails.Resolution);
+
+        this.lblAdditionalComments.Text = this._descriptionDetails.Comments;
+        if (this._descriptionDetails.Contact)
+        {
+            this.lblContactValue.Text = "Yes";
+            this.lblPreferredContactMentod.Text = this._descriptionDetails.ContactMethod;
+        }
+        else
+        {
+            this.lblContactValue.Text = "No";
+            this.lblContactHow.Text = "";
+            this.lblPreferredContactMentod.Text = "";
+        }
+    }
+
+    /// <summary>
+    ///     Determines the rating string.
+    /// </summary>
+    /// <param name="ratingLevel">The rating level.</param>
+    /// <returns></returns>
+    private string DetermineRatingString(int ratingLevel)
+    {
+        switch (ratingLevel)
+        {
+            case 0:
+                return "Satisfied";
+            case 1:
+                return "Neither Satisfied nor Dissatisfied";
+            case 2:
+                return "Dissatisfied";
+        }
+        return null;
     }
 }

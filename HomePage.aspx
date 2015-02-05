@@ -13,7 +13,8 @@
 <header>
     <img alt="Digital Upscale manager for ballgames" class="auto-style1" src="Images/DigitalBallGamesManagerHeader.png"/>
 </header>
-<p>Welcome to the Digital Upscale Manager for the Ballgames Website. Please select one of the links below.</p>
+<p>Welcome to the Digital Upscale Manager for the Ballgames Website.</p>
+<p>Please select one of the links below.</p>
 <form id="form1" runat="server">
 
     <asp:Label ID="lblContactList" runat="server" Text="Click here to create a contact list" CssClass="label"></asp:Label>
