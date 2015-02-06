@@ -21,7 +21,7 @@
     <asp:Button ID="btnBuildContactList" runat="server" Text="Build Contact List" OnClick="btnBuildContactList_Click"/>
     <br/>
     <br/>
-    <asp:Label ID="lblFeedBack" runat="server" Text="Click here to see feedback" CssClass="label"></asp:Label>
+    <asp:Label ID="lblFeedBack" runat="server" Text="Click here to give feedback" CssClass="label"></asp:Label>
     <asp:Button ID="btnFeedback" runat="server" Text="Find Feedback" OnClick="btnFeedback_Click"/>
 
 </form>

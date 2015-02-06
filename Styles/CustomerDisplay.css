@@ -2,18 +2,6 @@
 
 #ddlCustomerList { width: 15em; }
 
-#lblBallGamesTitle {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-}
-
-#lblSlogan {
-    font-size: 12px;
-    font-style: italic;
-    text-align: center;
-}
-
 #productData {
     float: left;
     height: 324px;
@@ -34,7 +22,8 @@ section {
 
 #lblName, #lblAdress, #lblCity, #lblState, #lblZipCode, #lblPhone, #lblEmail {
     display: block;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+ 
 }
 
 #lblLongDescription { margin-bottom: 2em; }
@@ -48,6 +37,8 @@ section {
 
 .bold { font-weight: bold; }
 
-#btnAddToContacts { float: left; }
+#btnAddToContacts { float: left;margin-top: 1em;}
 
-#btnViewContactList { float: right; }
+#btnViewContactList { float: right;margin-top: 1em;}
+
+#btnHomeButton{float: left; margin-top: 5em;}
