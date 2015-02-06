@@ -7,7 +7,7 @@
 ///     2/5/15
 /// </version>
 /// <summary>
-///     Summary description for Description
+///     Description objects that show the user feedback input
 /// </summary>
 public class Description
 {

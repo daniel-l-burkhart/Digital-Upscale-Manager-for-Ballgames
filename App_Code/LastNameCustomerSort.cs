@@ -8,7 +8,7 @@ using System.Collections.Generic;
 ///     2/5/15
 /// </version>
 /// <summary>
-///     Summary description for LastNameCustomerSort
+///     Sort for the last name of the customer list
 /// </summary>
 public class LastNameCustomerSort : IComparer<CustomerListItem>
 {

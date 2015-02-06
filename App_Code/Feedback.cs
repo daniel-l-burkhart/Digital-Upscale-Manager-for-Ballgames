@@ -7,7 +7,7 @@
 ///     2/5/15
 /// </version>
 /// <summary>
-///     Summary description for Feedback
+///     Code for the feedback objects.
 /// </summary>
 public class Feedback
 {
