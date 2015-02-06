@@ -24,7 +24,7 @@ public class Description
         get { return this._customerId; }
         set
         {
-            Trace.Assert(true, "Invalid Data");
+            Trace.Assert(value!=null, "Invalid Data");
             this._customerId = value;
         }
     }
@@ -40,7 +40,7 @@ public class Description
         get { return this._feedbackId; }
         set
         {
-            Trace.Assert(true, "Invalid Data");
+            Trace.Assert(value != null, "Invalid Data");
             this._feedbackId = value;
         }
     }
@@ -56,7 +56,7 @@ public class Description
         get { return this._serviceTime; }
         set
         {
-            Trace.Assert(true, "Invalid Data");
+            Trace.Assert(value != null, "Invalid Data");
             this._serviceTime = value;
         }
     }
@@ -66,7 +66,7 @@ public class Description
         get { return this._efficiency; }
         set
         {
-            Trace.Assert(true, "Invalid Data");
+            Trace.Assert(value != null, "Invalid Data");
             this._efficiency = value;
         }
     }
@@ -82,7 +82,7 @@ public class Description
         get { return this._resolution; }
         set
         {
-            Trace.Assert(true, "Invalid Data");
+            Trace.Assert(value != null, "Invalid Data");
             this._resolution = value;
         }
     }
@@ -114,7 +114,7 @@ public class Description
         get { return this._contact; }
         set
         {
-            Trace.Assert(true, "Invalid Data");
+            Trace.Assert(value != null, "Invalid Data");
             this._contact = value;
         }
     }
