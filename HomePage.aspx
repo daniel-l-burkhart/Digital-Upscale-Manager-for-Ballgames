@@ -18,11 +18,11 @@
 <form id="form1" runat="server">
 
     <asp:Label ID="lblContactList" runat="server" Text="Click here to create a contact list" CssClass="label"></asp:Label>
-    <asp:Button ID="btnBuildContactList" runat="server" Text="Build Contact List" OnClick="btnBuildContactList_Click"/>
+    <asp:Button ID="btnBuildContactList" runat="server" Text="Build Contact List" OnClick="btnBuildContactList_Click" TabIndex="1"/>
     <br/>
     <br/>
     <asp:Label ID="lblFeedBack" runat="server" Text="Click here to give feedback" CssClass="label"></asp:Label>
-    <asp:Button ID="btnFeedback" runat="server" Text="Find Feedback" OnClick="btnFeedback_Click"/>
+    <asp:Button ID="btnFeedback" runat="server" Text="Find Feedback" OnClick="btnFeedback_Click" TabIndex="2"/>
 
 </form>
 

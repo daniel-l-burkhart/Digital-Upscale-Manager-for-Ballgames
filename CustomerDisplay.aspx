@@ -16,9 +16,9 @@
     <form id="form1" runat="server">
 
         <h3>Please select a Customer</h3>
-        <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Customer]"></asp:AccessDataSource>
+        <asp:AccessDataSource ID="DigitalUpscaleDatabase" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Customer]"></asp:AccessDataSource>
         <br/>
-        <asp:DropDownList ID="ddlCustomerList" runat="server" DataSourceID="AccessDataSource1" DataTextField="Name" DataValueField="CustomerID" AutoPostBack="True">
+        <asp:DropDownList ID="ddlCustomerList" runat="server" DataSourceID="DigitalUpscaleDatabase" DataTextField="Name" DataValueField="CustomerID" AutoPostBack="True" TabIndex="1">
         </asp:DropDownList>
         <br/>
         <div id="productData">
@@ -39,13 +39,13 @@
             <br/>
             <br/>
             
-            <asp:Button ID="btnAddToContacts" runat="server" OnClick="btnAddToContacts_Click" Text="Add to Contacts" Width="143px"/>
-            <asp:Button ID="btnViewContactList" runat="server" OnClick="btnViewContactList_Click" Text="View Contact List"/>
+            <asp:Button ID="btnAddToContacts" runat="server" OnClick="btnAddToContacts_Click" Text="Add to Contacts" Width="143px" TabIndex="2"/>
+            <asp:Button ID="btnViewContactList" runat="server" OnClick="btnViewContactList_Click" Text="View Contact List" TabIndex="3"/>
             <br/>
             <br/>
             <asp:Label ID="lblMessage" runat="server" CssClass="validator"></asp:Label>
           
-            <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click"/>
+            <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click" TabIndex="4"/>
 
         </div>
 

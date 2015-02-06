@@ -49,13 +49,13 @@
         <asp:Label ID="lblPreferredContactMentod" runat="server"></asp:Label>
         <br/>
         <br/>
-        <asp:Button ID="btnReturnToFeedbackPage" runat="server" OnClick="btnReturnToFeedbackPage_Click" Text="Return to feedback page"/>
+        <asp:Button ID="btnReturnToFeedbackPage" runat="server" OnClick="btnReturnToFeedbackPage_Click" Text="Return to feedback page" TabIndex="1"/>
         <br/>
     </div>
 
     <div id="ReturnToHomePage">
 
-        <asp:Button ID="lblReturnToHomePage" runat="server" OnClick="lblReturnToHomePage_Click" Text="Return to Home Page"/>
+        <asp:Button ID="lblReturnToHomePage" runat="server" OnClick="lblReturnToHomePage_Click" Text="Return to Home Page" TabIndex="2"/>
 
     </div>
 </form>
