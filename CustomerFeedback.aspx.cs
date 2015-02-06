@@ -29,10 +29,15 @@ public partial class CustomerFeedback : Page
             this.ClearInputFields();
 
             this.ToggleControls(false);
+            SetFocus(this.txtCustomerID);
         }
-
+        if (this.lbClosedFeedbackList.Enabled)
+        {
+            SetFocus(this.lbClosedFeedbackList);
+        }
         this._feedbackList = new List<Feedback>();
         this.lblCustomerIDNotInList.Text = string.Empty;
+        
     }
 
     #endregion
@@ -168,7 +173,7 @@ public partial class CustomerFeedback : Page
     /// </summary>
     private void SortFeedbackList()
     {
-        this._feedbackList.Sort((a, b) => String.Compare(b.DateClosed, a.DateClosed, StringComparison.Ordinal));
+        this._feedbackList.Sort((a, b) => String.Compare(a.DateClosed, b.DateClosed, StringComparison.Ordinal));
         foreach (var currentFeedback in this._feedbackList)
         {
             this.lbClosedFeedbackList.Items.Add(new ListItem(currentFeedback.FormatFeedback(),
