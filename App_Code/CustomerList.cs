@@ -73,15 +73,15 @@ public class CustomerList
     /// <value>
     ///     The <see cref="CustomerListItem" />.
     /// </value>
-    /// <param name="id">The identifier.</param>
+    /// <param name="name">Returning customer with matching name.</param>
     /// <returns></returns>
-    public CustomerListItem this[string id]
+    public CustomerListItem this[string name]
     {
         get
         {
             foreach (var currCustomer in this._customerList)
             {
-                if (currCustomer.Customer.CustomerId == id)
+                if (currCustomer.Customer.CustomerName == name)
                 {
                     return currCustomer;
                 }

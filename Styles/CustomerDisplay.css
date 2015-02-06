@@ -41,4 +41,4 @@ section {
 
 #btnViewContactList { float: right;margin-top: 1em;}
 
-#btnHomeButton{float: left; margin-top: 5em;}
+#btnHomeButton{display: block ; margin-top: 5em;}

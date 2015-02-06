@@ -97,11 +97,11 @@ public partial class CustomerDisplay : Page
             return;
         }
         var customerList = CustomerList.GetCustomers();
-        var customerItem = customerList[this._currentCustomer.CustomerId];
+        var customerItem = customerList[this._currentCustomer.CustomerName];
         if (customerItem == null)
         {
             customerList.AddCustomer(this._currentCustomer);
-            Response.Redirect("~/ContactList.aspx");
+            Response.Redirect("ContactList.aspx");
         }
         else
         {
@@ -114,8 +114,9 @@ public partial class CustomerDisplay : Page
     /// </summary>
     private void AlreadyBeenAdded()
     {
-        this.lblMessage.Text =
-            "This customer has already  <br/> been added to the list. <br/> Please select another customer.";
+        this.lblMessage.Text = "This customer has already  <br/> " +
+                               "been added to the list. <br/> " +
+                               "Please select another customer.";
     }
 
     /// <summary>
