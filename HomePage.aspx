@@ -6,7 +6,7 @@
 <head runat="server">
     <link href="Styles/Main.css" rel="stylesheet"/>
     <link href="Styles/HomePage.css" rel="stylesheet"/>
-    <title>Home Page</title>
+    <title>Burkhart Project 1: Home Page</title>
 
 </head>
 <body>

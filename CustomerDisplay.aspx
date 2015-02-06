@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Customer Display</title>
+    <title>Burkhart Project 1: Customer Display</title>
     <link rel="stylesheet" type="text/css" href="Styles/Main.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/CustomerDisplay.css"/>
 </head>

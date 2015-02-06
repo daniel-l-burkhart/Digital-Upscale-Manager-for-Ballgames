@@ -6,7 +6,7 @@
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="Styles/Main.css"/>
     <link rel="stylesheet" type="text/css" href="Styles/ContactList.css"/>
-    <title>Contact List</title>
+    <title>Burkhart Project 1: Contact List</title>
 
 </head>
 <body>

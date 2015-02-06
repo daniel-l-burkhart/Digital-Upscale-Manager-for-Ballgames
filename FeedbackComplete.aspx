@@ -6,7 +6,7 @@
 <head runat="server">
     <link href="Styles/Main.css" rel="stylesheet"/>
     <link href="Styles/FeedbackComplete.css" rel="stylesheet"/>
-    <title>Feedback Complete</title>
+    <title>Burkhart Project 1: Feedback Complete</title>
 </head>
 <body>
 <header>
