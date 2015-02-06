@@ -42,3 +42,5 @@ section {
 #btnViewContactList { float: right;margin-top: 1em;}
 
 #btnHomeButton{display: block ; margin-top: 5em;}
+
+#lblMessage{ padding-top: 1em;padding-bottom: 1em;}

@@ -109,7 +109,7 @@ public partial class CustomerFeedback : Page
         }
 
 
-        feedbackTable.RowFilter = "CustomerID = '" + this.txtCustomerID.Text + "'";
+        feedbackTable.RowFilter = "CustomerID = '" + this.txtCustomerID.Text + "' AND DateClosed IS NOT NULL";
 
         if (feedbackTable.Count <= 0)
         {

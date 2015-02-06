@@ -30,7 +30,7 @@
         </div>
         <asp:ListBox ID="firstCustomerList" runat="server" Height="200px" Width="700px" AutoPostBack="True"></asp:ListBox>
         <div id="cartbuttons">
-            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            <asp:Label ID="lblMessage" runat="server" CssClass="messageRemoveText"></asp:Label>
         </div>
         <br/>
         <br/>
