@@ -60,7 +60,7 @@ public partial class CustomerDisplay : Page
     private Customer SelectedCustomer()
     {
         var customerTable = (DataView)
-            this.AccessDataSource1.Select(DataSourceSelectArguments.Empty);
+            this.DigitalUpscaleDatabase.Select(DataSourceSelectArguments.Empty);
 
         if (customerTable == null)
         {
