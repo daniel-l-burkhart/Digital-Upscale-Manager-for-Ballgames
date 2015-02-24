@@ -5,9 +5,9 @@
 #productData {
     float: left;
     height: 324px;
+    margin-right: 348px;
     padding: 1em 0;
     width: 350px;
-    margin-right: 348px;
 }
 
 section {
@@ -24,7 +24,6 @@ section {
 #lblName, #lblAdress, #lblCity, #lblState, #lblZipCode, #lblPhone, #lblEmail {
     display: block;
     margin-bottom: 2em;
- 
 }
 
 #lblLongDescription { margin-bottom: 2em; }
@@ -38,10 +37,22 @@ section {
 
 .bold { font-weight: bold; }
 
-#btnAddToContacts { float: left;margin-top: 1em;}
+#btnAddToContacts {
+    float: left;
+    margin-top: 1em;
+}
 
-#btnViewContactList { float: right;margin-top: 1em;}
+#btnViewContactList {
+    float: right;
+    margin-top: 1em;
+}
 
-#btnHomeButton{display: block ; margin-top: 5em;}
+#btnHomeButton {
+    display: block;
+    margin-top: 5em;
+}
 
-#lblMessage{ padding-top: 1em;padding-bottom: 1em;}
+#lblMessage {
+    padding-bottom: 1em;
+    padding-top: 1em;
+}

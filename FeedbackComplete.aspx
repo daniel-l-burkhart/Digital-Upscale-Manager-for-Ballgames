@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FeedbackComplete.aspx.cs" Inherits="FeedbackComplete" MasterPageFile="BallgamesMasterPage.master"%>
 
 <asp:Content ID="headContent" ContentPlaceHolderID="head" Runat="Server">
-    <link href="Styles/FeedbackComplete.css" rel="stylesheet" />
+    <link href="Styles/FeedbackComplete.css" rel="stylesheet"/>
 </asp:Content>
 
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
-       <div>
+    <div>
         <h3>Thank you for submitting feedback.</h3>
     </div>
 

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+
 // ReSharper disable ConditionIsAlwaysTrueOrFalse
 
 /// <author>
@@ -25,7 +26,7 @@ public class Description
         get { return this._customerId; }
         set
         {
-            Trace.Assert(value!=null, "Invalid Data");
+            Trace.Assert(value != null, "Invalid Data");
             this._customerId = value;
         }
     }

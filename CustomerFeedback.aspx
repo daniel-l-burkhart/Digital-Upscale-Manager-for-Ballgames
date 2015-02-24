@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerFeedback.aspx.cs" Inherits="CustomerFeedback"  MasterPageFile="BallgamesMasterPage.master"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerFeedback.aspx.cs" Inherits="CustomerFeedback" MasterPageFile="BallgamesMasterPage.master"%>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <link href="Styles/CustomerFeedback.css" rel="stylesheet" />
+    <link href="Styles/CustomerFeedback.css" rel="stylesheet"/>
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
-  
-     <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback]">
+
+    <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback]">
     </asp:AccessDataSource>
     <div id="customerIDSearch">
         <asp:Label ID="lblCustomerId" runat="server" Text="Insert Customer ID:"></asp:Label>
@@ -68,9 +68,9 @@
         <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" ValidationGroup="secondValidation" TabIndex="11"/>
         <br/>
         <br/>
-        <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" CausesValidation="False" TabIndex="12"/> 
+        <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" CausesValidation="False" TabIndex="12"/>
 
-</div>
+    </div>
 </asp:Content>
 
 <%--<!DOCTYPE html>

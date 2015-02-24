@@ -1,14 +1,16 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-    <siteMapNode url="Default.aspx" title="Home"  description="The Home Page">
-      <siteMapNode url="" title="Customer Support"  description="" >
-        <siteMapNode url="CustomerFeedback.aspx" title="Complete Customer Feedback"  description="Complete Customer Feedback" />
-        <siteMapNode url="ContactUs.aspx" title="Contact Us"  description="Contact Us" />
-      </siteMapNode>
-      <siteMapNode url="" title="Administration"  description="">
-        <siteMapNode url="CustomerDisplay.aspx" title="Display Customers"  description="Display Customers" />
-        <siteMapNode url="ContactList.aspx" title="Display Contacts"  description="Display Contacts" />
-      </siteMapNode>
-      <siteMapNode url ="SiteMap.aspx" title="Site Map" description="Site map"></siteMapNode>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="Default.aspx" title="Home" description="The Home Page">
+    <siteMapNode url="" title="Customer Support" description="">
+      <siteMapNode url="CustomerFeedback.aspx" title="Complete Customer Feedback"
+                   description="Complete Customer Feedback" />
+      <siteMapNode url="ContactUs.aspx" title="Contact Us" description="Contact Us" />
     </siteMapNode>
+    <siteMapNode url="" title="Administration" description="">
+      <siteMapNode url="CustomerDisplay.aspx" title="Display Customers" description="Display Customers" />
+      <siteMapNode url="ContactList.aspx" title="Display Contacts" description="Display Contacts" />
+    </siteMapNode>
+    <siteMapNode url="SiteMap.aspx" title="Site Map" description="Site map"></siteMapNode>
+  </siteMapNode>
 </siteMap>
