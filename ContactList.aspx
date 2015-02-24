@@ -1,21 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ContactList.aspx.cs" Inherits="ContactList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ContactList.aspx.cs" Inherits="ContactList" MasterPageFile="BallgamesMasterPage.master"%>
 
-<!DOCTYPE html>
+<asp:Content ID="headContent" ContentPlaceHolderID="head" Runat="Server">
+    <link href="Styles/ContactList.css" rel="stylesheet" />
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link rel="stylesheet" type="text/css" href="Styles/Main.css"/>
-    <link rel="stylesheet" type="text/css" href="Styles/ContactList.css"/>
-    <title>Burkhart Project 1: Contact List</title>
-
-</head>
-<body>
-<header>
-    <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital Upscale manager for ballgames"/>
-</header>
-<section>
-    <form id="form1" runat="server">
-        <h3>Contact List</h3>
+<asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
+    <h3>Contact List</h3>
         <div id="actionButtons">
             <asp:Button ID="btnAddMoreCustomer" runat="server"
                         PostBackUrl="~/CustomerDisplay.aspx" Text="Add More Customers" CssClass="button" Width="163px" TabIndex="2"/>
@@ -35,8 +25,5 @@
         <br/>
         <br/>
         <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" TabIndex="5"/>
-    </form>
-</section>
+</asp:Content>
 
-</body>
-</html>

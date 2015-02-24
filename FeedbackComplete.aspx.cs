@@ -97,7 +97,7 @@ public partial class FeedbackComplete : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void lblReturnToHomePage_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/HomePage.aspx");
+        Response.Redirect("~/Default.aspx");
     }
 
     /// <summary>

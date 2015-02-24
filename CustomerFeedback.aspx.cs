@@ -188,7 +188,7 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnHomeButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("HomePage.aspx");
+        Response.Redirect("~/Default.aspx");
     }
 
     /// <summary>

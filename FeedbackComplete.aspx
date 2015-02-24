@@ -1,21 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FeedbackComplete.aspx.cs" Inherits="FeedbackComplete" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FeedbackComplete.aspx.cs" Inherits="FeedbackComplete" MasterPageFile="BallgamesMasterPage.master"%>
 
-<!DOCTYPE html>
+<asp:Content ID="headContent" ContentPlaceHolderID="head" Runat="Server">
+    <link href="Styles/FeedbackComplete.css" rel="stylesheet" />
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link href="Styles/Main.css" rel="stylesheet"/>
-    <link href="Styles/FeedbackComplete.css" rel="stylesheet"/>
-    <title>Burkhart Project 1: Feedback Complete</title>
-</head>
-<body>
-<header>
-    <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital Upscale manager for ballgames"/>
-</header>
-<form id="form1" runat="server">
-    <div>
+<asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
+       <div>
         <h3>Thank you for submitting feedback.</h3>
     </div>
+
     <div>
 
         <asp:Label ID="lblContacted" runat="server"></asp:Label>
@@ -58,6 +51,4 @@
         <asp:Button ID="lblReturnToHomePage" runat="server" OnClick="lblReturnToHomePage_Click" Text="Return to Home Page" TabIndex="2"/>
 
     </div>
-</form>
-</body>
-</html>
+</asp:Content>
