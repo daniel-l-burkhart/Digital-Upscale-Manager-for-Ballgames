@@ -16,6 +16,4 @@ option { margin: .5em; }
 
 #actionButtons { display: block; }
 
-.messageRemoveText {
-    color: rgb(255, 0, 0);
-}
+.messageRemoveText { color: rgb(255, 0, 0); }

@@ -8,14 +8,22 @@ using System.Web.UI.WebControls;
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     2/5/15
+///     3/4/15
 /// </version>
 /// <summary>
 ///     The code behind for the Customer feedback page
 /// </summary>
 public partial class CustomerFeedback : Page
 {
-    #region PageLoad Method
+    /// <summary>
+    ///     The _current feedback
+    /// </summary>
+    private Feedback _currentFeedback;
+
+    /// <summary>
+    ///     The _feedback list
+    /// </summary>
+    private List<Feedback> _feedbackList;
 
     /// <summary>
     ///     Handles the Load event of the Page control.
@@ -38,24 +46,6 @@ public partial class CustomerFeedback : Page
         this._feedbackList = new List<Feedback>();
         this.lblCustomerIDNotInList.Text = string.Empty;
     }
-
-    #endregion
-
-    #region Instance Variables
-
-    /// <summary>
-    ///     The _current feedback
-    /// </summary>
-    private Feedback _currentFeedback;
-
-    /// <summary>
-    ///     The _feedback list
-    /// </summary>
-    private List<Feedback> _feedbackList;
-
-    #endregion
-
-    #region Methods
 
     /// <summary>
     ///     Clears the input fields.
@@ -211,6 +201,4 @@ public partial class CustomerFeedback : Page
         Session["GivenFeedback"] = feedback;
         Response.Redirect("~/FeedbackComplete.aspx");
     }
-
-    #endregion
 }

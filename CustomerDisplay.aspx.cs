@@ -6,23 +6,17 @@ using System.Web.UI;
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     2/5/15
+///     3/4/15
 /// </version>
 /// <summary>
 ///     Page that displays the information of the customer after it is selected
 /// </summary>
 public partial class CustomerDisplay : Page
 {
-    #region Instance Variable
-
     /// <summary>
     ///     The _current customer
     /// </summary>
     private Customer _currentCustomer;
-
-    #endregion
-
-    #region PageLoad Method
 
     /// <summary>
     ///     Handles the Load event of the Page control.
@@ -46,10 +40,6 @@ public partial class CustomerDisplay : Page
         this.lblPhone.Text = this._currentCustomer.PhoneNumber;
         this.lblEmail.Text = this._currentCustomer.EmailAddress;
     }
-
-    #endregion
-
-    #region Methods
 
     /// <summary>
     ///     Selecteds the customer.
@@ -136,8 +126,6 @@ public partial class CustomerDisplay : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnHomeButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("HomePage.aspx");
+        Response.Redirect("Default.aspx");
     }
-
-    #endregion
 }

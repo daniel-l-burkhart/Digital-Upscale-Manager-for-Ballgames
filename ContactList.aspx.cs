@@ -5,23 +5,17 @@ using System.Web.UI;
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     2/5/15
+///     3/4/15
 /// </version>
 /// <summary>
 ///     The code for the page that allows the user to view their current contact list and edit or clear that list.
 /// </summary>
 public partial class ContactList : Page
 {
-    #region Instance Variable
-
     /// <summary>
     ///     The _customer list
     /// </summary>
     private CustomerList _customerList;
-
-    #endregion
-
-    #region Methods
 
     /// <summary>
     ///     Handles the Load event of the Page control.
@@ -103,8 +97,6 @@ public partial class ContactList : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnHomeButton_Click(object sender, EventArgs e)
     {
-        Response.Redirect("HomePage.aspx");
+        Response.Redirect("Default.aspx");
     }
-
-    #endregion
 }

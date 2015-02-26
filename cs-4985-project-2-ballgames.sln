@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "cs-4985-project-2-ballgames", "http://localhost:52768", "{8ED16456-A882-48EE-B2A6-3F5FE66124D8}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52768"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\cs-4985-project-2-ballgames\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52768\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52768"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\cs-4985-project-2-ballgames\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52768\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\..\Desktop\cs-4985-project-2-ballgames\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8ED16456-A882-48EE-B2A6-3F5FE66124D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ED16456-A882-48EE-B2A6-3F5FE66124D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
