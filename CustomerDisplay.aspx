@@ -15,7 +15,7 @@
     <br/>
     <div id="productData">
         <br/>
-        <asp:Label ID="lblName" runat="server" CssClass="nameLabel" ></asp:Label>
+        <asp:Label ID="lblName" runat="server" CssClass="nameLabel"></asp:Label>
         <br/>
         <asp:Label ID="lblAddressLabel" runat="server" CssClass="bold" Text="Address: "></asp:Label>
         <asp:Label ID="lblAddress" runat="server"></asp:Label>

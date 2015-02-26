@@ -5,15 +5,13 @@ using System.Web.UI;
 ///     Damiel Burkhart
 /// </author>
 /// <version>
-///     2/5/15
+///     3/4/15
 /// </version>
 /// <summary>
 ///     The Home page of the website
 /// </summary>
 public partial class HomePage : Page
 {
-    #region PageLoad Method
-
     /// <summary>
     ///     Handles the Load event of the Page control.
     /// </summary>
@@ -22,10 +20,6 @@ public partial class HomePage : Page
     protected void Page_Load(object sender, EventArgs e)
     {
     }
-
-    #endregion
-
-    #region Methods
 
     /// <summary>
     ///     Handles the Click event of the btnBuildContactList control.
@@ -46,6 +40,4 @@ public partial class HomePage : Page
     {
         Response.Redirect("CustomerFeedback.aspx");
     }
-
-    #endregion
 }

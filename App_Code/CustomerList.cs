@@ -6,7 +6,7 @@ using System.Web;
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     2/5/15
+///     3/4/15
 /// </version>
 /// <summary>
 ///     The list class that holds all the
@@ -15,29 +15,6 @@ using System.Web;
 /// </summary>
 public class CustomerList
 {
-    #region Instance Variable
-
-    /// <summary>
-    ///     The _contact list
-    /// </summary>
-    private readonly List<CustomerListItem> _customerList;
-
-    #endregion
-
-    #region Constructor
-
-    /// <summary>
-    ///     Initializes a new instance of the <see cref="CustomerList" /> class.
-    /// </summary>
-    public CustomerList()
-    {
-        this._customerList = new List<CustomerListItem>();
-    }
-
-    #endregion
-
-    #region Properties
-
     /// <summary>
     ///     Gets the count.
     /// </summary>
@@ -90,9 +67,18 @@ public class CustomerList
         }
     }
 
-    #endregion
+    /// <summary>
+    ///     The _contact list
+    /// </summary>
+    private readonly List<CustomerListItem> _customerList;
 
-    #region Methods
+    /// <summary>
+    ///     Initializes a new instance of the <see cref="CustomerList" /> class.
+    /// </summary>
+    public CustomerList()
+    {
+        this._customerList = new List<CustomerListItem>();
+    }
 
     /// <summary>
     ///     Gets the list.
@@ -139,6 +125,4 @@ public class CustomerList
     {
         this._customerList.Sort(new LastNameCustomerSort());
     }
-
-    #endregion
 }

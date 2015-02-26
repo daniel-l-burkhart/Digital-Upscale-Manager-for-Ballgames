@@ -4,15 +4,13 @@
 ///     Daniel Burkhart
 /// </author>
 /// <version>
-///     2/5/15
+///     3/4/15
 /// </version>
 /// <summary>
 ///     Attributes and description for Customer
 /// </summary>
 public class Customer
 {
-    #region Properties
-
     /// <summary>
     ///     Gets or sets the name of the customer.
     /// </summary>
@@ -142,10 +140,6 @@ public class Customer
         }
     }
 
-    #endregion
-
-    #region Instance Variables
-
     /// <summary>
     ///     The _addess
     /// </summary>
@@ -185,6 +179,4 @@ public class Customer
     ///     The _zip code
     /// </summary>
     private string _zipCode;
-
-    #endregion
 }
