@@ -201,4 +201,15 @@ public partial class CustomerFeedback : Page
         Session["GivenFeedback"] = feedback;
         Response.Redirect("~/FeedbackComplete.aspx");
     }
+    protected void cbContact_CheckedChanged(object sender, EventArgs e)
+    {
+        if (this.cbContact.Checked)
+        {
+            this.rfvContactMethod.Enabled = true;
+        }
+        else if (this.cbContact.Checked == false)
+        {
+            this.rfvContactMethod.Enabled = false;
+        }
+    }
 }
