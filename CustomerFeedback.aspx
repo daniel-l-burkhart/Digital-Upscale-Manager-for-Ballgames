@@ -31,6 +31,7 @@
         <br/>
         <br/>
         <asp:Label ID="lblServiceTime" runat="server" Text="Service Time:"></asp:Label>
+        &nbsp;<asp:RequiredFieldValidator ID="rfvServiceTime" runat="server" ControlToValidate="rblServiceTime" CssClass="validator" Display="Dynamic" ErrorMessage="Please select a service time feedback option." ValidationGroup="secondValidation"></asp:RequiredFieldValidator>
         <asp:RadioButtonList ID="rblServiceTime" runat="server" RepeatDirection="Horizontal" TabIndex="5">
             <asp:ListItem Value="1">Satisfied</asp:ListItem>
             <asp:ListItem Value="2">Neither Satisfied Nor Dissatisfied</asp:ListItem>
@@ -38,6 +39,7 @@
         </asp:RadioButtonList>
         <br/>
         <asp:Label ID="lblTechnicalEfficiency" runat="server" Text="Technical Efficiency"></asp:Label>
+        &nbsp;<asp:RequiredFieldValidator ID="rfvTechnicalEfficiency" runat="server" ControlToValidate="rblTechnicalEfficiency" CssClass="validator" Display="Dynamic" ErrorMessage="Please select a technical efficiency feedback option." ValidationGroup="secondValidation"></asp:RequiredFieldValidator>
         <asp:RadioButtonList ID="rblTechnicalEfficiency" runat="server" RepeatDirection="Horizontal" TabIndex="6">
             <asp:ListItem Value="1">Satisfied</asp:ListItem>
             <asp:ListItem Value="2">Neither Satisfied Nor Dissatisfied</asp:ListItem>
@@ -45,6 +47,7 @@
         </asp:RadioButtonList>
         <br/>
         <asp:Label ID="lblProblemResolution" runat="server" Text="Problem Resolution"></asp:Label>
+        &nbsp;<asp:RequiredFieldValidator ID="rfvProblemResolution" runat="server" ControlToValidate="rblProblemResolution" CssClass="validator" Display="Dynamic" ErrorMessage="Please select a problem resolution feedback option" ValidationGroup="secondValidation"></asp:RequiredFieldValidator>
         <asp:RadioButtonList ID="rblProblemResolution" runat="server" RepeatDirection="Horizontal" TabIndex="7">
             <asp:ListItem Value="1">Satisfied</asp:ListItem>
             <asp:ListItem Value="2">Neither Satisfied Nor Dissatisfied</asp:ListItem>

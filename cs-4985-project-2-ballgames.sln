@@ -8,20 +8,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "cs-4985-project-2-ballgames
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52768"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\cs-4985-project-2-ballgames\"
+		Debug.AspNetCompiler.PhysicalPath = "..\cs-4985-project-2-ballgames\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52768\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_52768"
-		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\Desktop\cs-4985-project-2-ballgames\"
+		Release.AspNetCompiler.PhysicalPath = "..\cs-4985-project-2-ballgames\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52768\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "..\..\..\..\Desktop\cs-4985-project-2-ballgames\"
+		SlnRelativePath = "..\cs-4985-project-2-ballgames\"
 	EndProjectSection
 EndProject
 Global

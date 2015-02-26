@@ -15,18 +15,19 @@ section {
     width: 680px;
 }
 
-#lblName {
-    display: block;
+.nameLabel {
     font-size: 125%;
     font-weight: bold;
+      display: block;
+    margin-bottom: 1em;
 }
 
-#lblName, #lblAdress, #lblCity, #lblState, #lblZipCode, #lblPhone, #lblEmail {
+
+.marginFormatting {
+ 
     display: block;
     margin-bottom: 2em;
 }
-
-#lblLongDescription { margin-bottom: 2em; }
 
 
 .validator {

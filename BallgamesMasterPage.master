@@ -26,10 +26,11 @@
         </asp:Menu>
         <asp:SiteMapDataSource ID="smdsBallGames" runat="server"/>
     </asp:ContentPlaceHolder>
+    <div id="content">
     <asp:ContentPlaceHolder id="contentPlaceHolder" runat="server">
 
     </asp:ContentPlaceHolder>
-
+    </div>
     <asp:ContentPlaceHolder id="footerPlaceHolder" runat="server">
         <p class="footer">Please contact us at 88-BallGame or email info@ballgame.com</p>
     </asp:ContentPlaceHolder>
