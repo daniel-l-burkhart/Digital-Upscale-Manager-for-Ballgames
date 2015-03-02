@@ -42,7 +42,7 @@ public partial class FeedbackComplete : Page
     /// </summary>
     private void DisplayFeedback()
     {
-        this.lblCustomerID.Text = this._descriptionDetails.CustomerId.ToString();
+        this.lblCustomerID.Text = this._descriptionDetails.CustomerId;
 
         this.lblServiceTimeValue.Text = this.DetermineRatingString(this._descriptionDetails.SericeTime);
         this.lblEfficiencyValue.Text = this.DetermineRatingString(this._descriptionDetails.Efficiency);

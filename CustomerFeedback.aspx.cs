@@ -189,7 +189,7 @@ public partial class CustomerFeedback : Page
     {
         var feedback = new Description
         {
-            CustomerId = Convert.ToInt32(this.txtCustomerID.Text),
+            CustomerId = this.txtCustomerID.Text,
             SericeTime = this.rblServiceTime.SelectedIndex,
             Efficiency = this.rblTechnicalEfficiency.SelectedIndex,
             Resolution = this.rblProblemResolution.SelectedIndex,

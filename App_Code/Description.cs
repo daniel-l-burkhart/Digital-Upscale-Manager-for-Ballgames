@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-// ReSharper disable ConditionIsAlwaysTrueOrFalse
+
 
 /// <author>
 ///     Daniel Burkhart
@@ -19,7 +19,7 @@ public class Description
     /// <value>
     ///     The customer identifier.
     /// </value>
-    public int CustomerId
+    public string CustomerId
     {
         get { return this._customerId; }
         set
@@ -35,7 +35,7 @@ public class Description
     /// <value>
     ///     The feedback identifier.
     /// </value>
-    public int FeedbackId
+    public string FeedbackId
     {
         get { return this._feedbackId; }
         set
@@ -56,7 +56,7 @@ public class Description
         get { return this._serviceTime; }
         set
         {
-            Trace.Assert(value != null, "Invalid Data");
+            Trace.Assert(value > -1, "Invalid Data");
             this._serviceTime = value;
         }
     }
@@ -66,7 +66,7 @@ public class Description
         get { return this._efficiency; }
         set
         {
-            Trace.Assert(value != null, "Invalid Data");
+            Trace.Assert(value > -1, "Invalid Data");
             this._efficiency = value;
         }
     }
@@ -82,7 +82,7 @@ public class Description
         get { return this._resolution; }
         set
         {
-            Trace.Assert(value != null, "Invalid Data");
+            Trace.Assert(value > -1, "Invalid Data");
             this._resolution = value;
         }
     }
@@ -109,15 +109,7 @@ public class Description
     /// <value>
     ///     <c>true</c> if contact; otherwise, <c>false</c>.
     /// </value>
-    public bool Contact
-    {
-        get { return this._contact; }
-        set
-        {
-            Trace.Assert(value != null, "Invalid Data");
-            this._contact = value;
-        }
-    }
+    public bool Contact { get; set; }
 
     /// <summary>
     ///     Gets or sets the contact method.
@@ -141,11 +133,6 @@ public class Description
     private string _comments;
 
     /// <summary>
-    ///     The _contact
-    /// </summary>
-    private bool _contact;
-
-    /// <summary>
     ///     The _contact method
     /// </summary>
     private string _contactMethod;
@@ -153,14 +140,17 @@ public class Description
     /// <summary>
     ///     The _customer identifier
     /// </summary>
-    private int _customerId;
+    private string _customerId;
 
+    /// <summary>
+    /// The _efficiency
+    /// </summary>
     private int _efficiency;
 
     /// <summary>
     ///     The _feedback identifier
     /// </summary>
-    private int _feedbackId;
+    private string _feedbackId;
 
     /// <summary>
     ///     The _resolution

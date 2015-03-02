@@ -30,8 +30,8 @@ section {
 }
 
 
-.validator {
-    color: rgb(255, 0, 0);
+.errorMessage {
+    color: red;
     float: left;
     margin-left: 1em;
 }
