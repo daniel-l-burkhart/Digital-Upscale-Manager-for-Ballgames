@@ -1,7 +1,5 @@
 ﻿using System.Diagnostics;
 
-
-
 /// <author>
 ///     Daniel Burkhart
 /// </author>
@@ -143,7 +141,7 @@ public class Description
     private string _customerId;
 
     /// <summary>
-    /// The _efficiency
+    ///     The _efficiency
     /// </summary>
     private int _efficiency;
 
