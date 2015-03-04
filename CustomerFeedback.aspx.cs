@@ -96,7 +96,8 @@ public partial class CustomerFeedback : Page
         }
 
         var feedbackTable = (DataView)
-            this.AccessDataSource1.Select(DataSourceSelectArguments.Empty);
+            this.sdsFeedbackDataSource.Select(DataSourceSelectArguments.Empty);
+
         if (feedbackTable == null)
         {
             return;

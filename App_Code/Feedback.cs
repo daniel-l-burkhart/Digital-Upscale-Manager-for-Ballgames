@@ -182,7 +182,7 @@ public class Feedback
     /// <summary>
     ///     Formats the feedback.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Returns a formatted string.</returns>
     public string FormatFeedback()
     {
         var dateClosed = this.DateClosed.Split();

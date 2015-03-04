@@ -44,7 +44,7 @@ public class CustomerListItem
     /// <summary>
     ///     Displays this instance in a string format to be used by the list page.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Returns the formatted string of the display.</returns>
     public string Display()
     {
         var customerNameSplit = this.Customer.CustomerName.Split(' ');

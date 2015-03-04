@@ -51,7 +51,7 @@ public class CustomerList
     ///     The <see cref="CustomerListItem" />.
     /// </value>
     /// <param name="name">Returning customer with matching name.</param>
-    /// <returns></returns>
+    /// <returns>Returns the customer list item.</returns>
     public CustomerListItem this[string name]
     {
         get
@@ -83,7 +83,7 @@ public class CustomerList
     /// <summary>
     ///     Gets the list.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Returns the Customer List.</returns>
     public static CustomerList GetCustomers()
     {
         var contactList = (CustomerList) HttpContext.Current.Session["ContactList"];

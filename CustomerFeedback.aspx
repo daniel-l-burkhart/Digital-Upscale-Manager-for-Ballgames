@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
 
-    <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback]">
+    <asp:AccessDataSource ID="sdsFeedbackDataSource" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback]">
     </asp:AccessDataSource>
     <div id="customerIDSearch">
         <asp:Label ID="lblCustomerId" runat="server" Text="Insert Customer ID:"></asp:Label>

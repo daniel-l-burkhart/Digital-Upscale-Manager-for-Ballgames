@@ -66,7 +66,7 @@ public partial class FeedbackComplete : Page
     ///     Determines the rating string.
     /// </summary>
     /// <param name="ratingLevel">The rating level.</param>
-    /// <returns></returns>
+    /// <returns>Returns the string for the value</returns>
     private string DetermineRatingString(int ratingLevel)
     {
         switch (ratingLevel)
