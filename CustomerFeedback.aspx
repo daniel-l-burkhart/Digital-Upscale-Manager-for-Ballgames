@@ -59,7 +59,7 @@
         <asp:TextBox ID="txtAdditionalComments" runat="server" Height="67px" TextMode="MultiLine" Width="247px" TabIndex="8"></asp:TextBox>
         <br/>
         <br/>
-        <asp:CheckBox ID="cbContact" runat="server" Text="Click here if you would like to be contacted" TabIndex="9" OnCheckedChanged="cbContact_CheckedChanged" AutoPostBack="True"/>
+        <asp:CheckBox ID="cbContact" runat="server" Text="Click here if you would like to be contacted" TabIndex="9"  AutoPostBack="True"/>
         <br/>
         <br/>
         <asp:Label ID="lblContactHow" runat="server" Text="If so, how would you like to be contacted?"></asp:Label>

@@ -43,8 +43,21 @@ public partial class CustomerFeedback : Page
         {
             SetFocus(this.lbClosedFeedbackList);
         }
+        this.ContactMethod();
         this._feedbackList = new List<Feedback>();
         this.lblCustomerIDNotInList.Text = string.Empty;
+    }
+
+    private void ContactMethod()
+    {
+        if (this.cbContact.Checked)
+        {
+            this.rfvContactMethod.Enabled = true;
+        }
+        else
+        {
+            this.rfvContactMethod.Enabled = false;
+        }
     }
 
     /// <summary>
@@ -188,6 +201,7 @@ public partial class CustomerFeedback : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
+        
         var feedback = new Description
         {
             CustomerId = this.txtCustomerID.Text,
@@ -203,15 +217,15 @@ public partial class CustomerFeedback : Page
         Response.Redirect("~/FeedbackComplete.aspx");
     }
 
-    protected void cbContact_CheckedChanged(object sender, EventArgs e)
+/*    protected void cbContact_CheckedChanged(object sender, EventArgs e)
     {
         if (this.cbContact.Checked)
         {
             this.rfvContactMethod.Enabled = true;
         }
-        else if (this.cbContact.Checked == false)
+        else
         {
             this.rfvContactMethod.Enabled = false;
         }
-    }
+    }*/
 }
