@@ -122,6 +122,7 @@ public partial class CustomerFeedback : Page
         if (feedbackTable.Count <= 0)
         {
             this.lblCustomerIDNotInList.Text = "This customer ID is not in the list. Please try again.";
+            this.lbClosedFeedbackList.Items.Clear();
             this.ToggleControls(false);
         }
         else if (feedbackTable.Count > 0)
