@@ -177,6 +177,7 @@ public partial class CustomerFeedback : Page
     private void SortFeedbackList()
     {
         this._feedbackList.Sort((a, b) => String.Compare(a.DateClosed, b.DateClosed, StringComparison.Ordinal));
+
         foreach (var currentFeedback in this._feedbackList)
         {
             this.lbClosedFeedbackList.Items.Add(new ListItem(currentFeedback.FormatFeedback(),
