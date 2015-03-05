@@ -16,8 +16,10 @@ public class LastNameCustomerSort : IComparer<CustomerListItem>
     {
         var firstCustomerName = firstCustomer.Customer.CustomerName.Split();
         var firstCustomerLastName = firstCustomerName[1];
+
         var secondCustomername = secondCustomer.Customer.CustomerName.Split();
         var secondCustomerLastName = secondCustomername[1];
+
         return String.Compare(firstCustomerLastName, secondCustomerLastName, StringComparison.Ordinal);
     }
 }

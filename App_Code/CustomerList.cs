@@ -121,6 +121,9 @@ public class CustomerList
         this._customerList.Clear();
     }
 
+    /// <summary>
+    /// Customers the list sort.
+    /// </summary>
     public void CustomerListSort()
     {
         this._customerList.Sort(new LastNameCustomerSort());
