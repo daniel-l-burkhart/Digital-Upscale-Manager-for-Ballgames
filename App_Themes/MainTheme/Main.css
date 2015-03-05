@@ -1,10 +1,10 @@
 ﻿body {
-    background: ghostwhite;
+    background: #35465c;
     border: 2px solid black;
     font-family: Arial, Helvetica, Sans-Serif;
     font-size: 85%;
-    height: 725px;
-    margin: 0 auto 0 auto;
+    
+    margin: 0 auto;
     padding: 10px;
     width: 700px;
 }
@@ -14,4 +14,11 @@
     text-align: right;
 }
 
+form {
+    background: ghostwhite;
+   
+}
+
 #content { height: 575px; }
+
+#margin{ margin: 10px;}

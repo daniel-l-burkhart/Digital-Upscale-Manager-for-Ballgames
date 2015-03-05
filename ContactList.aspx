@@ -5,6 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
+    <div id ="margin">
     <h3>Contact List</h3>
     <div id="actionButtons">
         <asp:Button ID="btnAddMoreCustomer" runat="server"
@@ -18,11 +19,12 @@
         <br/>
         <br/>
     </div>
-    <asp:ListBox ID="firstCustomerList" runat="server" Height="200px" Width="700px" AutoPostBack="True" TabIndex="1"></asp:ListBox>
+    <asp:ListBox ID="firstCustomerList" runat="server" Height="200px" Width="650px" AutoPostBack="True" TabIndex="1"></asp:ListBox>
     <div id="cartbuttons">
         <asp:Label ID="lblMessage" runat="server" CssClass="messageRemoveText"></asp:Label>
     </div>
     <br/>
     <br/>
     <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" TabIndex="5"/>
+        </div>
 </asp:Content>

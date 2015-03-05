@@ -3,6 +3,7 @@
 <asp:Content ID="headerContent" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
+    <div id="margin">
     <h3>Sitemap of the Digital Upscale Manager for Ballgames Site</h3>
     <asp:TreeView ID="TreeView1" runat="server" DataSourceID="smdsBallgamesSiteMap" ImageSet="Arrows">
         <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD"/>
@@ -11,4 +12,5 @@
         <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px" VerticalPadding="0px"/>
     </asp:TreeView>
     <asp:SiteMapDataSource ID="smdsBallgamesSiteMap" runat="server"/>
+        </div>
 </asp:Content>

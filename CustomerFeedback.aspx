@@ -8,6 +8,7 @@
 
     <asp:AccessDataSource ID="sdsFeedbackDataSource" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback]">
     </asp:AccessDataSource>
+    <div id ="margin">
     <div id="customerIDSearch">
         <asp:Label ID="lblCustomerId" runat="server" Text="Insert Customer ID:"></asp:Label>
         <asp:TextBox ID="txtCustomerID" runat="server" TabIndex="1"></asp:TextBox>
@@ -19,6 +20,7 @@
         <br/>
         <asp:Label ID="lblCustomerIDNotInList" runat="server" CssClass="validator"></asp:Label>
     </div>
+    
     <div id="listBox">
         <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" Width="676px" TabIndex="3">
             <asp:ListItem></asp:ListItem>
@@ -75,4 +77,5 @@
         <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" CausesValidation="False" TabIndex="12"/>
 
     </div>
+        </div>
 </asp:Content>

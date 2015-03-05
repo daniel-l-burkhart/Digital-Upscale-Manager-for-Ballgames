@@ -5,7 +5,7 @@
     <link href="Styles/CustomerDisplay.css" rel="stylesheet"/>
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
-
+    <div id="margin">
 
     <h3>Please select a Customer</h3>
     <asp:AccessDataSource ID="DigitalUpscaleDatabase" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Customer]"></asp:AccessDataSource>
@@ -43,4 +43,5 @@
 
 
     </div>
+        </div>
 </asp:Content>

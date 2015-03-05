@@ -5,6 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
+    <div id="margin">
     <div>
         <h3>Thank you for submitting feedback.</h3>
     </div>
@@ -51,4 +52,5 @@
         <asp:Button ID="lblReturnToHomePage" runat="server" OnClick="lblReturnToHomePage_Click" Text="Return to Home Page" TabIndex="2"/>
 
     </div>
+        </div>
 </asp:Content>
