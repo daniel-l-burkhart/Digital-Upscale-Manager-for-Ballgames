@@ -32,7 +32,7 @@
         </asp:ContentPlaceHolder>
     
     <asp:ContentPlaceHolder id="footerPlaceHolder" runat="server">
-        <p class="footer">Please contact us at 88-BallGame or email <asp:HyperLink ID="hlEmailFooter" NavigateUrl="mailto:info@ballgame.com" runat="server">info@ballgame.com</asp:HyperLink>
+        <p class="footer">Please contact us at <asp:HyperLink ID="hlPhoneNumber" NavigateUrl="tel:88-BallGame" runat="server">88-BallGame</asp:HyperLink> or email <asp:HyperLink ID="hlEmailFooter" NavigateUrl="mailto:info@ballgame.com" runat="server">info@ballgame.com</asp:HyperLink>
         </p>
     </asp:ContentPlaceHolder>
 
