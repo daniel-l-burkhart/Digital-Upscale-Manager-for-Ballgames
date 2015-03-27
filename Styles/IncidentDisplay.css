@@ -1,0 +1,12 @@
+﻿th {
+    text-align: left;
+}
+
+table {
+
+    table-layout: fixed;
+    width: 800px;
+    
+}
+
+#ddlCustomers { width: 15em; }

@@ -6,7 +6,13 @@
     
     margin: 0 auto;
     padding: 10px;
-    width: 700px;
+    width: 70%;
+    align-content: center;
+    
+}
+
+#imageHeader {
+    align-content: center;
 }
 
 .footer {
@@ -22,3 +28,4 @@ form {
 #content { height: 575px; }
 
 #margin{ margin: 10px;}
+

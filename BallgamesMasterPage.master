@@ -14,7 +14,8 @@
 <form id="form1" runat="server">
 
     <asp:ContentPlaceHolder id="headerAndMenuPlaceHolder" runat="server">
-        <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital BallGames Manager Header"/>
+        <img src="Images/DigitalBallGamesManagerHeader.png" alt="Digital BallGames Manager Header" id="imageHeader"/>
+        <br/>
         <asp:Menu ID="mnuBallGames" runat="server" BackColor="#B5C7DE" DataSourceID="smdsBallGames" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" StaticSubMenuIndent="10px">
             <DynamicHoverStyle BackColor="#284E98" ForeColor="White"/>
             <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px"/>
