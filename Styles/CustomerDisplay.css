@@ -3,17 +3,20 @@
 #ddlCustomerList { width: 15em; }
 
 #productData {
-    float: left;
-    height: 324px;
+
+    display: table;
+    float: none;
     margin-right: 348px;
+
+    overflow: auto;
     padding: 1em 0;
+    position: relative;
+    table-layout: auto;
+    visibility: visible;
     width: 350px;
 }
 
-section {
-    height: 480px;
-    width: 680px;
-}
+section { width: 680px; }
 
 .nameLabel {
     display: block;

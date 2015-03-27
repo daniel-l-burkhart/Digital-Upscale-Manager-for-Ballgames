@@ -12,8 +12,8 @@
     <br/>
     <asp:DropDownList ID="ddlCustomerList" runat="server" DataSourceID="DigitalUpscaleDatabase" DataTextField="Name" DataValueField="CustomerID" AutoPostBack="True" TabIndex="1">
     </asp:DropDownList>
-    <br/>
-    <div id="productData">
+   <br/>
+    <div id="productData" style="display: table; overflow: auto; table-layout: auto; float: none; visibility: visible; position: relative;">
         <br/>
         <asp:Label ID="lblName" runat="server" CssClass="nameLabel"></asp:Label>
         <br/>
@@ -43,5 +43,6 @@
 
 
     </div>
+        <br/>
         </div>
 </asp:Content>
