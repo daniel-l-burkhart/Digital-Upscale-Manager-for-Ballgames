@@ -35,30 +35,26 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="sdsSoftware" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>" DeleteCommand="DELETE FROM [Software] WHERE [SoftwareID] = ? AND [Name] = ? AND [Version] = ? AND [ReleaseDate] = ?" InsertCommand="INSERT INTO [Software] ([SoftwareID], [Name], [Version], [ReleaseDate]) VALUES (?, ?, ?, ?)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Software] ORDER BY [Name]" UpdateCommand="UPDATE [Software] SET [Name] = ?, [Version] = ?, [ReleaseDate] = ? WHERE [SoftwareID] = ? AND [Name] = ? AND [Version] = ? AND [ReleaseDate] = ?">
-        <DeleteParameters>
-            <asp:Parameter Name="original_SoftwareID" Type="String" />
-            <asp:Parameter Name="original_Name" Type="String" />
-            <asp:Parameter Name="original_Version" Type="Decimal" />
-            <asp:Parameter Name="original_ReleaseDate" Type="DateTime" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="SoftwareID" Type="String" />
-            <asp:Parameter Name="Name" Type="String" />
-            <asp:Parameter Name="Version" Type="Decimal" />
-            <asp:Parameter Name="ReleaseDate" Type="DateTime" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="Name" Type="String" />
-            <asp:Parameter Name="Version" Type="Decimal" />
-            <asp:Parameter Name="ReleaseDate" Type="DateTime" />
-            <asp:Parameter Name="original_SoftwareID" Type="String" />
-            <asp:Parameter Name="original_Name" Type="String" />
-            <asp:Parameter Name="original_Version" Type="Decimal" />
-            <asp:Parameter Name="original_ReleaseDate" Type="DateTime" />
-        </UpdateParameters>
+    <br />
+    <br />
+    <asp:SqlDataSource ID="sdsSoftware" runat="server" ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Software] ORDER BY [Version] DESC">
     </asp:SqlDataSource>
-       
+       <div id="newSoftware">
+           <h3>Add new software: </h3>
+           <br/>
+           <asp:Label ID="lblSoftwareID" runat="server" Text="Software ID: "></asp:Label>
+           <asp:TextBox ID="txtSoftwareID" runat="server"></asp:TextBox>
+           <br/>
+           <asp:Label ID="lblName" runat="server" Text="Name: "></asp:Label>
+           <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+           <br/>
+           <asp:Label ID="lblVersion" runat="server" Text="Version: "></asp:Label>
+           <asp:TextBox ID="txtVersion" runat="server"></asp:TextBox>
+           <br/>
+           <asp:Label ID="lblReleaseDate" runat="server" Text="Release Date: "></asp:Label>
+           <asp:TextBox ID="txtReleaseDate" runat="server"></asp:TextBox>
+           <br/>
+       </div>
 </asp:Content>
 
 
