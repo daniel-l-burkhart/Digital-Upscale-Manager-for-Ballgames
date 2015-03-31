@@ -43,12 +43,12 @@ public class NewSoftware
     ///     The version.
     /// </value>
     /// <exception cref="System.ArgumentException">Invalid Data</exception>
-    public string Version
+    public double Version
     {
         get { return this._version; }
         set
         {
-            if (value == null)
+            if (value < 0)
             {
                 throw new ArgumentException("Invalid Data");
             }
@@ -63,7 +63,7 @@ public class NewSoftware
     ///     The release date.
     /// </value>
     /// <exception cref="System.ArgumentException">Invalid Data</exception>
-    public string ReleaseDate
+    public DateTime ReleaseDate
     {
         get { return this._releaseDate; }
         set
@@ -79,7 +79,7 @@ public class NewSoftware
     /// <summary>
     ///     The _release date
     /// </summary>
-    private string _releaseDate;
+    private DateTime _releaseDate;
 
     /// <summary>
     ///     The _software identifier
@@ -89,7 +89,7 @@ public class NewSoftware
     /// <summary>
     ///     The _version
     /// </summary>
-    private string _version;
+    private double _version;
 
     private string _name;
 
