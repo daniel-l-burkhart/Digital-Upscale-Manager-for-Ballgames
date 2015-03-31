@@ -12,10 +12,7 @@
 public class NewSoftware
 {
 
-    public NewSoftware()
-    {
-        
-    }
+   
     /// <summary>
     ///     Gets or sets the software identifier.
     /// </summary>

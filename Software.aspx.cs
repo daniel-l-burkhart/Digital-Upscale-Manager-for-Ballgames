@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.OleDb;
-using System.Data.SqlClient;
-using System.Runtime.InteropServices;
 using System.Web.UI;
 
 public partial class Software : Page
@@ -31,7 +29,7 @@ public partial class Software : Page
         this.txtReleaseDate.Text = "";
     }
 
-    public int InsertSoftware(NewSoftware newSoftware)
+    public void InsertSoftware(NewSoftware newSoftware)
     {
 
         const string insertString =
@@ -50,13 +48,13 @@ public partial class Software : Page
 
         connection.Open();
 
-        var returnValue = command.ExecuteNonQuery();
+        command.ExecuteNonQuery();
 
         connection.Close();
         this.gvSoftware.DataBind();
 
 
-        return returnValue;
+      
     }
     protected void gvSoftware_RowUpdated(object sender, System.Web.UI.WebControls.GridViewUpdatedEventArgs e)
     {
