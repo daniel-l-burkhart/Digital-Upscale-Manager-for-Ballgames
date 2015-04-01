@@ -1,13 +1,13 @@
 ﻿body {
     background: #35465c;
-    border: 2px dashed blue;
+    border: 2px dashed #35465c;
     font-family: Arial, Helvetica, Sans-Serif;
     font-size: 85%;
     margin: 0 auto;
     padding: 10px;
     width: 80%;
     height: 90%;
-    align-items: center;
+    
     background-image: url('../../Images/underwater.jpg');
     background-repeat: repeat;
 }

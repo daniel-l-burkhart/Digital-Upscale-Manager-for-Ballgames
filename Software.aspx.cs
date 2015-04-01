@@ -2,15 +2,38 @@
 using System.Configuration;
 using System.Data.OleDb;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
+/// <author>
+///     Daniel Burkhart
+/// </author>
+/// <version>
+///     Spring 2015
+/// </version>
+/// <summary>
+///     Code behind for the software page.
+/// </summary>
 public partial class Software : Page
 {
+    /// <summary>
+    ///     The _new software
+    /// </summary>
+    private NewSoftware _newSoftware;
 
-    NewSoftware _newSoftware;
+    /// <summary>
+    ///     Handles the Load event of the Page control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
     }
 
+    /// <summary>
+    ///     Handles the Click event of the btnAddToSoftware control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnAddToSoftware_Click(object sender, EventArgs e)
     {
         this._newSoftware = new NewSoftware
@@ -29,9 +52,12 @@ public partial class Software : Page
         this.txtReleaseDate.Text = "";
     }
 
+    /// <summary>
+    ///     Inserts the software.
+    /// </summary>
+    /// <param name="newSoftware">The new software.</param>
     public void InsertSoftware(NewSoftware newSoftware)
     {
-
         const string insertString =
             "INSERT INTO [Software] ([SoftwareID], [Name], [Version], [ReleaseDate]) " +
             "VALUES(@SoftwareID, @Name, @Version, @ReleaseDate)";
@@ -52,24 +78,34 @@ public partial class Software : Page
 
         connection.Close();
         this.gvSoftware.DataBind();
-
-
-      
     }
-    protected void gvSoftware_RowUpdated(object sender, System.Web.UI.WebControls.GridViewUpdatedEventArgs e)
+
+    /// <summary>
+    ///     Handles the RowUpdated event of the gvSoftware control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">
+    ///     The <see cref="System.Web.UI.WebControls.GridViewUpdatedEventArgs" /> instance containing the event
+    ///     data.
+    /// </param>
+    protected void gvSoftware_RowUpdated(object sender, GridViewUpdatedEventArgs e)
     {
         if (e.Exception != null)
         {
             this.lblError.Text = "A database error has occurred.<br /><br />" +
-                e.Exception.Message;
+                                 e.Exception.Message;
             if (e.Exception.InnerException != null)
+            {
                 this.lblError.Text += "<br />Message: "
-                    + e.Exception.InnerException.Message;
+                                      + e.Exception.InnerException.Message;
+            }
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
         }
         else if (e.AffectedRows == 0)
+        {
             this.lblError.Text = "Another user may have updated that category."
-                + "<br />Please try again.";
+                                 + "<br />Please try again.";
+        }
     }
 }
