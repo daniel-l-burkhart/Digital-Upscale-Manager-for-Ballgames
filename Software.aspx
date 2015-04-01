@@ -8,8 +8,8 @@
     <br/>
     <asp:Label ID="lblSoftware" runat="server" Text="Software:"></asp:Label>
     <br/>
-    <asp:GridView ID="gvSoftware" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="SoftwareID" DataSourceID="sdsSoftware" ForeColor="#333333" GridLines="None" Width="800px" OnRowUpdated="gvSoftware_RowUpdated">
-        <AlternatingRowStyle BackColor="White" />
+    <asp:GridView ID="gvSoftware" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="SoftwareID" DataSourceID="sdsSoftware" ForeColor="#333333" GridLines="None" OnRowUpdated="gvSoftware_RowUpdated">
+        <AlternatingRowStyle BackColor="White" CssClass="gridView"/>
         <Columns>
             <asp:BoundField DataField="SoftwareID" HeaderText="SoftwareID" ReadOnly="True" SortExpression="SoftwareID" >
             <ItemStyle HorizontalAlign="Center" />
@@ -32,7 +32,7 @@
 
 
                     <asp:RequiredFieldValidator ID="rfvVersion" runat="server" ControlToValidate="txtVersion" Display="Dynamic" ErrorMessage="Version is a required field.">*</asp:RequiredFieldValidator>
-
+                    <asp:CompareValidator ID="cvVersion" ControlToValidate="txtVersion" runat="server" Operator="DataTypeCheck" Type="Double" ErrorMessage="Please enter a number." >*</asp:CompareValidator>
 
                 </EditItemTemplate>
                 <ItemTemplate>
@@ -45,6 +45,8 @@
                     <asp:TextBox ID="txtReleaseDate" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:TextBox>
 
                     <asp:RequiredFieldValidator ID="rfvReleaseDate" runat="server" ControlToValidate="txtReleaseDate" Display="Dynamic" ErrorMessage="Release date is a required field.">*</asp:RequiredFieldValidator>
+                    <asp:CompareValidator ID="cvReleaseDateGridView" runat="server" ErrorMessage="Please enter a valid date." Display="Dynamic" ControlToValidate="txtReleaseDate" Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
+
 
                 </EditItemTemplate>
                 <ItemTemplate>
