@@ -27,6 +27,7 @@ public partial class Software : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.lblError.Text = "";
     }
 
     /// <summary>
@@ -103,6 +104,25 @@ public partial class Software : Page
             e.KeepInEditMode = true;
         }
         else if (e.AffectedRows == 0)
+        {
+            this.lblError.Text = "Another user may have updated that category."
+                                 + "<br />Please try again.";
+        }
+    }
+
+    /// <summary>
+    /// Handles the RowDeleted event of the gvSoftware control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="GridViewDeletedEventArgs"/> instance containing the event data.</param>
+    protected void gvSoftware_RowDeleted(object sender, GridViewDeletedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            this.lblError.Text = "A database error has occurred. <br/> <br/>" + "Message: " + e.Exception.Message;
+            e.ExceptionHandled = true;
+        }
+        else if(e.AffectedRows == 0)
         {
             this.lblError.Text = "Another user may have updated that category."
                                  + "<br />Please try again.";
