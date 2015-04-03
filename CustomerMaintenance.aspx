@@ -165,7 +165,14 @@
     <br />
     <br />
     <asp:ValidationSummary ID="vsDetailsView" runat="server" HeaderText="Please fix the following errors:" />
-    <asp:SqlDataSource ID="sdsCustomersDetails" runat="server" ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Customer] WHERE ([CustomerID] = ?)" DeleteCommand="DELETE FROM [Customer] WHERE [CustomerID] = ?" InsertCommand="INSERT INTO [Customer] ([CustomerID], [Name], [Address], [City], [State], [ZipCode], [Phone], [Email]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" UpdateCommand="UPDATE [Customer] SET [Name] = ?, [Address] = ?, [City] = ?, [State] = ?, [ZipCode] = ?, [Phone] = ?, [Email] = ? WHERE [CustomerID] = ?">
+    <asp:SqlDataSource ID="sdsCustomersDetails" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>" 
+        OldValuesParameterFormatString="original_{0}" 
+        ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" 
+        SelectCommand="SELECT * FROM [Customer] WHERE ([CustomerID] = ?)" 
+        DeleteCommand="DELETE FROM [Customer] WHERE [CustomerID] = ?" 
+        InsertCommand="INSERT INTO [Customer] ([CustomerID], [Name], [Address], [City], [State], [ZipCode], [Phone], [Email]) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" 
+        UpdateCommand="UPDATE [Customer] SET [Name] = ?, [Address] = ?, [City] = ?, [State] = ?, [ZipCode] = ?, [Phone] = ?, [Email] = ? WHERE [CustomerID] = ?">
         <DeleteParameters>
             <asp:Parameter Name="original_CustomerID" Type="Int32" />
         </DeleteParameters>

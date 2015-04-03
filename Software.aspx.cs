@@ -95,11 +95,7 @@ public partial class Software : Page
         {
             this.lblError.Text = "A database error has occurred.<br /><br />" +
                                  e.Exception.Message;
-            if (e.Exception.InnerException != null)
-            {
-                this.lblError.Text += "<br />Message: "
-                                      + e.Exception.InnerException.Message;
-            }
+           
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
         }
@@ -124,7 +120,7 @@ public partial class Software : Page
         }
         else if(e.AffectedRows == 0)
         {
-            this.lblError.Text = "Another user may have updated that category."
+            this.lblError.Text = "Another user may have updated that category or that record cannot be deleted."
                                  + "<br />Please try again.";
         }
     }
