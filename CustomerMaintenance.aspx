@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/BallgamesMasterPage.master" AutoEventWireup="true" CodeFile="CustomerMaintenance.aspx.cs" Inherits="CustomerMaintenance" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 
-<asp:Content ID="Content3" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
+<asp:Content ID="Content3" ContentPlaceHolderID="contentPlaceHolder" runat="Server">
     <h2>Customer Maintenance</h2>
-    
+
     <h3>Select a customer to see the detailed information for that customer.</h3>
 
     <br />
@@ -28,7 +28,7 @@
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
     </asp:GridView>
-    <asp:SqlDataSource ID="sdsCustomers" runat="server" 
+    <asp:SqlDataSource ID="sdsCustomers" runat="server"
         ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>"
         ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" SelectCommand="SELECT [CustomerID], [Name], [City], [State] FROM [Customer] ORDER BY [Name]"></asp:SqlDataSource>
     <br />
@@ -53,10 +53,13 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Name" SortExpression="Name">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEditName" runat="server" ControlToValidate="txtEditName" Display="Dynamic" ErrorMessage="Name is a required field.">*</asp:RequiredFieldValidator>
+
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName" Display="Dynamic" ErrorMessage="Name is a required field.">*</asp:RequiredFieldValidator>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
@@ -64,10 +67,13 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Address" SortExpression="Address">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditAddress" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEditAddress" runat="server" ControlToValidate="txtEditAddress" Display="Dynamic" ErrorMessage="Address is a required field.">*</asp:RequiredFieldValidator>
+
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtAddress" runat="server" Text='<%# Bind("Address") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvAddress" runat="server" ControlToValidate="txtAddress" Display="Dynamic" ErrorMessage="Address is a required field.">*</asp:RequiredFieldValidator>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("Address") %>'></asp:Label>
@@ -75,10 +81,13 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="City" SortExpression="City">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("City") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditCity" runat="server" Text='<%# Bind("City") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEditCity" runat="server" ControlToValidate="txtEditCity" Display="Dynamic" ErrorMessage="City is a required field.">*</asp:RequiredFieldValidator>
+
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("City") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtCity" runat="server" Text='<%# Bind("City") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvCity" runat="server" ControlToValidate="txtCity" Display="Dynamic" ErrorMessage="City is a required field.">*</asp:RequiredFieldValidator>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("City") %>'></asp:Label>
@@ -86,10 +95,13 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="State" SortExpression="State">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("State") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditState" runat="server" Text='<%# Bind("State") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvSEdittate" runat="server" ControlToValidate="txtEditState" Display="Dynamic" ErrorMessage="State is a required field.">*</asp:RequiredFieldValidator>
+
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("State") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtState" runat="server" Text='<%# Bind("State") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvState" runat="server" ControlToValidate="txtState" Display="Dynamic" ErrorMessage="State is a required field.">*</asp:RequiredFieldValidator>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("State") %>'></asp:Label>
@@ -97,10 +109,15 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ZipCode" SortExpression="ZipCode">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("ZipCode") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditZipCode" runat="server" Text='<%# Bind("ZipCode") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEditZipCode" runat="server" ControlToValidate="txtEditZipCode" Display="Dynamic" ErrorMessage="Zip code is a required field.">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revEditZipCode" runat="server" ControlToValidate="txtEditZipCode" Display="Dynamic" ErrorMessage="Please enter a valid zip code." ValidationExpression="\d{5}(-\d{4})?">*</asp:RegularExpressionValidator>
+
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("ZipCode") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtZipCode" runat="server" Text='<%# Bind("ZipCode") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvZipCode" runat="server" ControlToValidate="txtZipCode" Display="Dynamic" ErrorMessage="Zip code is a required field.">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revZipCode" runat="server" ControlToValidate="txtZipCode" Display="Dynamic" ErrorMessage="Please enter a valid zip code." ValidationExpression="\d{5}(-\d{4})?">*</asp:RegularExpressionValidator>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label6" runat="server" Text='<%# Bind("ZipCode") %>'></asp:Label>
@@ -108,10 +125,15 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Phone" SortExpression="Phone">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditPhone" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revEditPhone" runat="server" ControlToValidate="txtEditPhone" Display="Dynamic" ErrorMessage="Please enter a valid phone number." ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">*</asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvEditPhone" runat="server" ControlToValidate="txtEditPhone" Display="Dynamic" ErrorMessage="Phone is a required field.">*</asp:RequiredFieldValidator>
+
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtPhone" runat="server" Text='<%# Bind("Phone") %>'></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="revPhone" runat="server" ControlToValidate="txtPhone" Display="Dynamic" ErrorMessage="Please enter a valid phone number." ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}">*</asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="rfvPhone" runat="server" ControlToValidate="txtPhone" Display="Dynamic" ErrorMessage="Phone is a required field.">*</asp:RequiredFieldValidator>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label7" runat="server" Text='<%# Bind("Phone") %>'></asp:Label>
@@ -119,10 +141,15 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Email" SortExpression="Email">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Email") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditEmail" runat="server" Text='<%# Bind("Email") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEditEmail" runat="server" ControlToValidate="txtEditEmail" Display="Dynamic" ErrorMessage="Email is a required field.">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revEditEmail" runat="server" ControlToValidate="txtEditEmail" Display="Dynamic" ErrorMessage="Please enter a valid email." Text="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Email") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" Text='<%# Bind("Email") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Email is a required field.">*</asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="revEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter a valid email." Text="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label8" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
@@ -135,6 +162,7 @@
         <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
         <RowStyle BackColor="#EFF3FB" />
     </asp:DetailsView>
+    <asp:ValidationSummary ID="vsDetailsView" runat="server" HeaderText="Please fix the following errors:" />
     <asp:SqlDataSource ID="sdsCustomersDetails" runat="server" ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Customer] WHERE ([CustomerID] = ?)">
         <SelectParameters>
             <asp:ControlParameter ControlID="gvCustomers" Name="CustomerID" PropertyName="SelectedValue" Type="Int32" />
