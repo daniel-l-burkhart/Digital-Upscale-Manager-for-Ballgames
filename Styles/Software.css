@@ -11,3 +11,11 @@
 .gridView {
     width: 80%;
 }
+
+#lblError {
+    color: red;
+}
+
+h2 {
+    text-align: center;
+}

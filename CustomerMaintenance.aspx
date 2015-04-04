@@ -4,6 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="contentPlaceHolder" runat="Server">
+    <div id="margin">
     <h2>Customer Maintenance</h2>
 
     <h3>Select a customer to see the detailed information for that customer.</h3>
@@ -200,6 +201,7 @@
             <asp:Parameter Name="original_CustomerID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
+        </div>
 </asp:Content>
 
 

@@ -5,37 +5,62 @@
 </asp:Content>
 <asp:Content ID="ContentHolder" ContentPlaceHolderID="contentPlaceHolder" runat="Server">
     <div id="margin">
+        <h2>Software Maintenance</h2>
         <br />
-        <asp:Label ID="lblSoftware" runat="server" Text="Software:"></asp:Label>
-        <br />
-          <asp:GridView ID="gvSoftware" runat="server" 
-            AutoGenerateColumns="False" DataKeyNames="SoftwareID" 
-            DataSourceID="SqlDataSource1" ForeColor="Black" 
-            OnRowDeleted="gvSoftware_RowDeleted" OnRowUpdated="gvSoftware_RowUpdated">
+
+        <asp:GridView ID="gvSoftware" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="SoftwareID" DataSourceID="sdsBallGames" ForeColor="#333333" GridLines="None" OnRowDeleted="gvSoftware_RowDeleted" OnRowUpdated="gvSoftware_RowUpdated" HorizontalAlign="Center">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="SoftwareID" HeaderText="SoftwareID" 
-                    ReadOnly="True" SortExpression="SoftwareID" >
-                </asp:BoundField>
-                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="Version" HeaderText="Version" SortExpression="Version" />
-                <asp:BoundField DataField="ReleaseDate" HeaderText="ReleaseDate" SortExpression="ReleaseDate" />
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:BoundField DataField="SoftwareID" HeaderText="SoftwareID" ReadOnly="True" SortExpression="SoftwareID" />
+                <asp:TemplateField HeaderText="Name" SortExpression="Name">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtEditName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEditName" runat="server" ControlToValidate="txtEditName" Display="Dynamic" ErrorMessage="Name is a required field.">*</asp:RequiredFieldValidator>
+
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Version" SortExpression="Version">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtEditVersion" runat="server" Text='<%# Bind("Version") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEditVersion" runat="server" ControlToValidate="txtEditVersion" Display="Dynamic" ErrorMessage="Version is a required field.">*</asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="cvEditVersion" runat="server" ControlToValidate="txtEditVersion" ErrorMessage="Please enter a valid version." Operator="DataTypeCheck" Type="Double">*</asp:CompareValidator>
+
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Version") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="ReleaseDate" SortExpression="ReleaseDate">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtEditReleaseDate" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rfvEditReleaseDate" runat="server" ControlToValidate="txtEditReleaseDate" ErrorMessage="Release Date is a field.">*</asp:RequiredFieldValidator>
+                        <asp:CompareValidator ID="cvEditReleaseDate" runat="server" ControlToValidate="txtEditReleaseDate" ErrorMessage="Please enter a valid release date." Operator="DataTypeCheck" Type="Date">*</asp:CompareValidator>
+
+
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:CommandField ShowEditButton="True" />
+                <asp:CommandField ShowDeleteButton="True" />
             </Columns>
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-            <RowStyle BackColor="White" ForeColor="Black" />
-            <AlternatingRowStyle BackColor="#E3EAEB" ForeColor="Black" />
-            <EditRowStyle BackColor="#F46D11" ForeColor="White" />
+            <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
-            ConflictDetection="CompareAllValues" 
-            ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString2 %>" 
-            OldValuesParameterFormatString="original_{0}" 
-
-            SelectCommand="SELECT [SoftwareID], [Name], [Version], [ReleaseDate] FROM [Software]" 
-            DeleteCommand="DELETE FROM [Software] WHERE [SoftwareID] = ? AND [Name] = ? AND [Version] = ? AND [ReleaseDate] = ?" 
-            InsertCommand="INSERT INTO [Software] ([SoftwareID], [Name], [Version], [ReleaseDate]) VALUES (?, ?, ?, ?)" 
-            UpdateCommand="UPDATE [Software] SET [Name] = ?, [Version] = ?, [ReleaseDate] = ? WHERE [SoftwareID] = ? AND [Name] = ? AND [Version] = ? AND [ReleaseDate] = ?" ProviderName="<%$ ConnectionStrings:BallGamesConnectionString2.ProviderName %>">
+        <asp:SqlDataSource ID="sdsBallGames" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>" DeleteCommand="DELETE FROM [Software] WHERE [SoftwareID] = ?" InsertCommand="INSERT INTO [Software] ([SoftwareID], [Name], [Version], [ReleaseDate]) VALUES (?, ?, ?, ?)" OldValuesParameterFormatString="original_{0}" ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" SelectCommand="SELECT [SoftwareID], [Name], [Version], [ReleaseDate] FROM [Software] ORDER BY [SoftwareID]" UpdateCommand="UPDATE [Software] SET [Name] = ?, [Version] = ?, [ReleaseDate] = ? WHERE [SoftwareID] = ? AND [Name] = ? AND [Version] = ? AND [ReleaseDate] = ?">
             <DeleteParameters>
                 <asp:Parameter Name="original_SoftwareID" Type="String" />
                 <asp:Parameter Name="original_Name" Type="String" />
@@ -58,8 +83,8 @@
                 <asp:Parameter Name="original_ReleaseDate" Type="DateTime" />
             </UpdateParameters>
         </asp:SqlDataSource>
-
-
+        <asp:ValidationSummary ID="vsGridViewSummary" runat="server" />
+        <br />
 
         <asp:Label ID="lblError" runat="server"></asp:Label>
         <br />
@@ -67,7 +92,8 @@
 
 
 
-        <div>
+        <div id="newSoftware">
+          
             <h3>Add new software: </h3>
             <br />
             <asp:Label ID="lblSoftwareID" CssClass="label" runat="server" Text="Software ID: "></asp:Label>
@@ -92,8 +118,9 @@
             <br />
             <br />
             <asp:ValidationSummary ID="vsNewSoftware" runat="server" HeaderText="Please fix the following errors:" ValidationGroup="newSoftwareValidation" />
+                </div>
         </div>
-    </div>
+    
 </asp:Content>
 
 

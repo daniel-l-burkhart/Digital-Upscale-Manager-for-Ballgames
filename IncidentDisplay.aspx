@@ -4,7 +4,8 @@
     <link href="Styles/IncidentDisplay.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="ContentHolder" ContentPlaceHolderID="contentPlaceHolder" runat="Server">
-    <h3>Please select a customer to see any incidents for that customer.</h3>
+    <div id="margin">
+    <h2>Please select a customer to see any incidents for that customer.</h2>
     <br/>
     <br/>
     <asp:DropDownList ID="ddlCustomers" runat="server" DataSourceID="sdsBallGames" DataTextField="Name" DataValueField="CustomerID" AutoPostBack="True"></asp:DropDownList>
@@ -59,6 +60,7 @@
             <asp:ControlParameter ControlID="ddlCustomers" Name="Name" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
+        </div>
 </asp:Content>
 
 
