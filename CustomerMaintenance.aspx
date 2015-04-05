@@ -170,7 +170,7 @@
             <RowStyle BackColor="#EFF3FB" />
         </asp:DetailsView>
         <br />
-        <asp:Label ID="lblError" runat="server" ForeColor="#CC0000"></asp:Label>
+        <asp:Label ID="lblError" runat="server" SkinID="error"></asp:Label>
         <br />
         <br />
         <asp:ValidationSummary ID="vsDetailsView" runat="server" HeaderText="Please fix the following errors:" />

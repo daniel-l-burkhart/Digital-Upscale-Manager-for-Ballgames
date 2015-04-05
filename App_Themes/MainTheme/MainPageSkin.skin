@@ -20,3 +20,4 @@ Default skin template. The following skins are provided as examples only.
 <asp:CustomValidator runat="server" ForeColor="red"></asp:CustomValidator>
 <asp:ValidationSummary runat="server" ForeColor="red"/>
 <asp:RegularExpressionValidator runat="server" ForeColor="Red"></asp:RegularExpressionValidator>
+<asp:Label runat="server" SkinID="error" ForeColor="Red"></asp:Label>

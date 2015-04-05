@@ -23,7 +23,7 @@
     </div>
     
     <div id="listBox">
-        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" Width="676px" TabIndex="3">
+        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" Width="75%" TabIndex="3">
             <asp:ListItem></asp:ListItem>
         </asp:ListBox>
         <br/>

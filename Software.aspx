@@ -96,7 +96,7 @@
         <asp:ValidationSummary ID="vsGridViewSummary" runat="server" />
         <br />
 
-        <asp:Label ID="lblError" runat="server"></asp:Label>
+        <asp:Label ID="lblError" runat="server" SkinID="error"></asp:Label>
         <br />
         <br />
 

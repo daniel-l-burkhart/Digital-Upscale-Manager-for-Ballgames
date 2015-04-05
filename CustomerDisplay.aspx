@@ -38,7 +38,7 @@
         <asp:Button ID="btnViewContactList" runat="server" OnClick="btnViewContactList_Click" Text="View Contact List" TabIndex="3"/>
         <br/>
         <br/>
-        <asp:Label ID="lblMessage" runat="server" CssClass="errorMessage"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server" CssClass="errorMessage" SkinID="error"></asp:Label>
 
         <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click" TabIndex="4"/>
       

@@ -22,7 +22,7 @@
     
     <asp:ListBox ID="firstCustomerList" runat="server" Height="200px" Width="650px" AutoPostBack="True" TabIndex="1"></asp:ListBox>
         <br />
-        <asp:Label ID="lblMessage" runat="server" CssClass="messageRemoveText"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server" CssClass="messageRemoveText" SkinID="error"></asp:Label>
   
     <br/>
     <br/>
