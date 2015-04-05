@@ -22,18 +22,19 @@
 .footer {
     font-style: italic;
     text-align: right;
+    padding: 30px;
 }
 
 form {
     background: ghostwhite;
     margin-left: auto;
     margin-right: auto;
-   
+    padding-bottom: 0.5%;
 }
 
 #content { height: 575px; }
 
-#margin{margin: 5%;
-    
+#margin{
+    margin: 5%;
 }
 

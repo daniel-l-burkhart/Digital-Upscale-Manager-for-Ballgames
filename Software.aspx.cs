@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.Data.OleDb;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -34,14 +32,10 @@ public partial class Software : Page
     protected void btnAddToSoftware_Click(object sender, EventArgs e)
     {
 
-        this.sdsBallGames.InsertParameters["SoftwareID"].DefaultValue
-            = this.txtSoftwareID.Text;
-        this.sdsBallGames.InsertParameters["Name"].DefaultValue
-            = this.txtName.Text;
-        this.sdsBallGames.InsertParameters["Version"].DefaultValue
-            = this.txtVersion.Text;
-        this.sdsBallGames.InsertParameters["ReleaseDate"].DefaultValue
-            = this.txtReleaseDate.Text;
+        this.sdsBallGames.InsertParameters["SoftwareID"].DefaultValue = this.txtSoftwareID.Text;
+        this.sdsBallGames.InsertParameters["Name"].DefaultValue = this.txtName.Text;
+        this.sdsBallGames.InsertParameters["Version"].DefaultValue = this.txtVersion.Text;
+        this.sdsBallGames.InsertParameters["ReleaseDate"].DefaultValue = this.txtReleaseDate.Text;
 
         try
         {

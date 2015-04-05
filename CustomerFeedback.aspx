@@ -30,6 +30,7 @@
         <asp:RequiredFieldValidator ID="rfvListBoxValidator" runat="server" ControlToValidate="lbClosedFeedbackList" CssClass="validator" Display="Dynamic" ErrorMessage="Please select a certain ticket to give feedback." ValidationGroup="secondValidation"></asp:RequiredFieldValidator>
     </div>
     <div>
+        <br />
         <asp:Label ID="lblRatings" runat="server" Text="Ratings"></asp:Label>
         <br/>
         <br/>

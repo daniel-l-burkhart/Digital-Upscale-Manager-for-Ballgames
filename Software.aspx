@@ -8,10 +8,19 @@
         <h2>Software Maintenance</h2>
         <br />
 
-        <asp:GridView ID="gvSoftware" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="SoftwareID" DataSourceID="sdsBallGames" ForeColor="#333333" GridLines="None" OnRowDeleted="gvSoftware_RowDeleted" OnRowUpdated="gvSoftware_RowUpdated" HorizontalAlign="Center">
+        <asp:GridView ID="gvSoftware" runat="server" AutoGenerateColumns="False" 
+            CellPadding="4" DataKeyNames="SoftwareID" DataSourceID="sdsBallGames" ForeColor="#333333" 
+            GridLines="None" OnRowDeleted="gvSoftware_RowDeleted" OnRowUpdated="gvSoftware_RowUpdated" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:BoundField DataField="SoftwareID" HeaderText="SoftwareID" ReadOnly="True" SortExpression="SoftwareID" />
+                <asp:TemplateField HeaderText="SoftwareID" SortExpression="SoftwareID">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label1" runat="server" ForeColor="GhostWhite" Text='<%# Eval("SoftwareID") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("SoftwareID") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Name" SortExpression="Name">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtEditName" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
@@ -32,6 +41,7 @@
                     <ItemTemplate>
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("Version") %>'></asp:Label>
                     </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="ReleaseDate" SortExpression="ReleaseDate">
                     <EditItemTemplate>
