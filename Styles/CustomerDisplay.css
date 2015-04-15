@@ -34,7 +34,6 @@ section { width: 680px; }
 
 
 .errorMessage {
-    color: red;
     float: left;
     margin-left: 1em;
 }

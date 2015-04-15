@@ -1,6 +1,6 @@
 ﻿body {
-    background: #35465c;
-    border: 2px dashed #35465c;
+
+    border: 2px dashed #ffffff;
     font-family: Arial, Helvetica, Sans-Serif;
     font-size: 85%;
     margin: 0 auto;
@@ -22,16 +22,19 @@
 .footer {
     font-style: italic;
     text-align: right;
+    padding: 30px;
 }
 
 form {
     background: ghostwhite;
-   
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0.5%;
 }
 
 #content { height: 575px; }
 
-#margin{ margin: 10px;
-    margin-bottom: 20px;
+#margin{
+    margin: 5%;
 }
 

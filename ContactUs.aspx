@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" Runat="Server">
     <div id ="margin">
+    
     <h3>Contact Us</h3>
 
     <p>You may use any of these ways to contact us.</p>
@@ -26,4 +27,5 @@
     <asp:Label ID="lblAddressVal" runat="server" Text="123 Ballgames Way. Los Angeles, CA. 90210"></asp:Label>
     <br/>
     </div>
+     
 </asp:Content>

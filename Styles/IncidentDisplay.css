@@ -9,4 +9,8 @@ table {
     
 }
 
-#ddlCustomers { width: 15em; }
+#ddlCustomers {
+    margin-left: auto;
+    margin-right: auto;
+     width: 15em;
+}

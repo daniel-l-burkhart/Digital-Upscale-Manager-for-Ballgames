@@ -8,7 +8,8 @@
 
     <asp:AccessDataSource ID="sdsFeedbackDataSource" runat="server" DataFile="~/App_Data/Digital Manager.mdb" SelectCommand="SELECT * FROM [Feedback]">
     </asp:AccessDataSource>
-    <div id ="margin">
+    <div id ="margin" >
+        <div id ="holder">
     <div id="customerIDSearch">
         <asp:Label ID="lblCustomerId" runat="server" Text="Insert Customer ID:"></asp:Label>
         <asp:TextBox ID="txtCustomerID" runat="server" TabIndex="1"></asp:TextBox>
@@ -22,13 +23,14 @@
     </div>
     
     <div id="listBox">
-        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" Width="676px" TabIndex="3">
+        <asp:ListBox ID="lbClosedFeedbackList" runat="server" AutoPostBack="True" Width="75%" TabIndex="3">
             <asp:ListItem></asp:ListItem>
         </asp:ListBox>
         <br/>
         <asp:RequiredFieldValidator ID="rfvListBoxValidator" runat="server" ControlToValidate="lbClosedFeedbackList" CssClass="validator" Display="Dynamic" ErrorMessage="Please select a certain ticket to give feedback." ValidationGroup="secondValidation"></asp:RequiredFieldValidator>
     </div>
     <div>
+        <br />
         <asp:Label ID="lblRatings" runat="server" Text="Ratings"></asp:Label>
         <br/>
         <br/>
@@ -75,7 +77,7 @@
         <br/>
         <br/>
         <asp:Button ID="btnHomeButton" runat="server" OnClick="btnHomeButton_Click" Text="Return to Home Page" CausesValidation="False" TabIndex="12"/>
-
+    </div>
     </div>
         </div>
 </asp:Content>

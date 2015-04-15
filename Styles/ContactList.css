@@ -3,17 +3,20 @@
     padding: 0;
 }
 
-/* The styles for the cart */
 
 #firstContactList {
     float: left;
     margin: 0 0 1em;
 }
 
-#form1 { height: 483px; }
 
-option { margin: .5em; }
 
-#actionButtons { display: block; }
+option {
+    margin: .5em;
+}
 
-.messageRemoveText { color: rgb(255, 0, 0); }
+#actionButtons {
+    display: block;
+    text-align: center;
+}
+

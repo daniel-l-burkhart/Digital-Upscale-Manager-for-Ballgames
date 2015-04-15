@@ -14,6 +14,7 @@
     </asp:DropDownList>
    <br/>
     <div id="productData" style="display: table; overflow: auto; table-layout: auto; float: none; visibility: visible; position: relative;">
+      
         <br/>
         <asp:Label ID="lblName" runat="server" CssClass="nameLabel"></asp:Label>
         <br/>
@@ -37,10 +38,10 @@
         <asp:Button ID="btnViewContactList" runat="server" OnClick="btnViewContactList_Click" Text="View Contact List" TabIndex="3"/>
         <br/>
         <br/>
-        <asp:Label ID="lblMessage" runat="server" CssClass="errorMessage"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server" CssClass="errorMessage" SkinID="error"></asp:Label>
 
         <asp:Button ID="btnHomeButton" runat="server" Text="Return to Home Page" OnClick="btnHomeButton_Click" TabIndex="4"/>
-
+      
 
     </div>
         <br/>

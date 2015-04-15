@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.Data.OleDb;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -15,10 +13,6 @@ using System.Web.UI.WebControls;
 /// </summary>
 public partial class Software : Page
 {
-    /// <summary>
-    ///     The _new software
-    /// </summary>
-    private NewSoftware _newSoftware;
 
     /// <summary>
     ///     Handles the Load event of the Page control.
@@ -27,6 +21,7 @@ public partial class Software : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.lblError.Text = "";
     }
 
     /// <summary>
@@ -36,48 +31,25 @@ public partial class Software : Page
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void btnAddToSoftware_Click(object sender, EventArgs e)
     {
-        this._newSoftware = new NewSoftware
+
+        this.sdsBallGames.InsertParameters["SoftwareID"].DefaultValue = this.txtSoftwareID.Text;
+        this.sdsBallGames.InsertParameters["Name"].DefaultValue = this.txtName.Text;
+        this.sdsBallGames.InsertParameters["Version"].DefaultValue = this.txtVersion.Text;
+        this.sdsBallGames.InsertParameters["ReleaseDate"].DefaultValue = this.txtReleaseDate.Text;
+
+        try
         {
-            SoftwareId = this.txtSoftwareID.Text,
-            Name = this.txtName.Text,
-            Version = Convert.ToDouble(this.txtVersion.Text),
-            ReleaseDate = Convert.ToDateTime(this.txtReleaseDate.Text)
-        };
-
-        this.InsertSoftware(this._newSoftware);
-
-        this.txtSoftwareID.Text = "";
-        this.txtVersion.Text = "";
-        this.txtName.Text = "";
-        this.txtReleaseDate.Text = "";
-    }
-
-    /// <summary>
-    ///     Inserts the software.
-    /// </summary>
-    /// <param name="newSoftware">The new software.</param>
-    public void InsertSoftware(NewSoftware newSoftware)
-    {
-        const string insertString =
-            "INSERT INTO [Software] ([SoftwareID], [Name], [Version], [ReleaseDate]) " +
-            "VALUES(@SoftwareID, @Name, @Version, @ReleaseDate)";
-
-        var connection =
-            new OleDbConnection(ConfigurationManager.ConnectionStrings["BallGamesConnectionString"].ConnectionString);
-
-        var command = new OleDbCommand(insertString, connection);
-
-        command.Parameters.AddWithValue("SoftwareID", newSoftware.SoftwareId);
-        command.Parameters.AddWithValue("Name", newSoftware.Name);
-        command.Parameters.AddWithValue("Version", newSoftware.Version);
-        command.Parameters.AddWithValue("ReleaseDate", newSoftware.ReleaseDate);
-
-        connection.Open();
-
-        command.ExecuteNonQuery();
-
-        connection.Close();
-        this.gvSoftware.DataBind();
+            this.sdsBallGames.Insert();
+            this.txtSoftwareID.Text = "";
+            this.txtName.Text = "";
+            this.txtVersion.Text = "";
+            this.txtReleaseDate.Text = "";
+        }
+        catch (Exception ex)
+        {
+            this.lblError.Text = "A database error has occurred.<br /><br />" +
+                "Message: " + ex.Message;
+        }
     }
 
     /// <summary>
@@ -94,17 +66,32 @@ public partial class Software : Page
         {
             this.lblError.Text = "A database error has occurred.<br /><br />" +
                                  e.Exception.Message;
-            if (e.Exception.InnerException != null)
-            {
-                this.lblError.Text += "<br />Message: "
-                                      + e.Exception.InnerException.Message;
-            }
+
             e.ExceptionHandled = true;
             e.KeepInEditMode = true;
         }
         else if (e.AffectedRows == 0)
         {
             this.lblError.Text = "Another user may have updated that category."
+                                 + "<br />Please try again.";
+        }
+    }
+
+    /// <summary>
+    /// Handles the RowDeleted event of the gvSoftware control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="GridViewDeletedEventArgs"/> instance containing the event data.</param>
+    protected void gvSoftware_RowDeleted(object sender, GridViewDeletedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            this.lblError.Text = "A database error has occurred. <br/> <br/>" + "Message: " + e.Exception.Message;
+            e.ExceptionHandled = true;
+        }
+        else if (e.AffectedRows == 0)
+        {
+            this.lblError.Text = "Another user may have updated that category or that record cannot be deleted."
                                  + "<br />Please try again.";
         }
     }
