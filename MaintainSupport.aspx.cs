@@ -1,13 +1,20 @@
 ﻿using System;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/// <author>
+///     Daniel Burkhart
+/// </author>
+/// <version>
+///     Spring 2015
+/// </version>
 /// <summary>
-/// 
+///     The code behind for the support page
 /// </summary>
-public partial class MaintainSupport : System.Web.UI.Page
+public partial class MaintainSupport : Page
 {
     /// <summary>
-    /// Handles the Load event of the Page control.
+    ///     Handles the Load event of the Page control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -20,8 +27,9 @@ public partial class MaintainSupport : System.Web.UI.Page
         this.fvSupport.DataBind();
         this.ddlSupport.DataBind();
     }
+
     /// <summary>
-    /// Handles the Click event of the btnEdit control.
+    ///     Handles the Click event of the btnEdit control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -29,8 +37,9 @@ public partial class MaintainSupport : System.Web.UI.Page
     {
         this.fvSupport.ChangeMode(FormViewMode.Edit);
     }
+
     /// <summary>
-    /// Handles the Click event of the btnInsert control.
+    ///     Handles the Click event of the btnInsert control.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
@@ -38,6 +47,7 @@ public partial class MaintainSupport : System.Web.UI.Page
     {
         this.fvSupport.ChangeMode(FormViewMode.Insert);
     }
+
     protected void fvSupport_ItemUpdated(object sender, FormViewUpdatedEventArgs e)
     {
         if (e.Exception != null)
@@ -55,13 +65,13 @@ public partial class MaintainSupport : System.Web.UI.Page
             this.ddlSupport.DataBind();
         }
     }
+
     protected void fvSupport_ItemDeleted(object sender, FormViewDeletedEventArgs e)
     {
-             if (e.Exception != null)
+        if (e.Exception != null)
         {
             this.lblError.Text = "A database error has occurred. " + "Message: " + e.Exception.Message;
             e.ExceptionHandled = true;
-          
         }
         else if (e.AffectedRows == 0)
         {
@@ -72,9 +82,10 @@ public partial class MaintainSupport : System.Web.UI.Page
             this.ddlSupport.DataBind();
         }
     }
+
     protected void fvSupport_ItemInserted(object sender, FormViewInsertedEventArgs e)
     {
-             if (e.Exception != null)
+        if (e.Exception != null)
         {
             this.lblError.Text = "A database error has occurred. " + "Message: " + e.Exception.Message;
             e.ExceptionHandled = true;

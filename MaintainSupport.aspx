@@ -4,12 +4,15 @@
 </asp:Content>
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" runat="Server">
     <div id="margin">
+    
         <h2>Please choose a staff member to see their information below.</h2>
-        <br />
+        
         <asp:DropDownList ID="ddlSupport" runat="server" AutoPostBack="True" DataSourceID="sdsSupport" DataTextField="Name" DataValueField="SupportID"></asp:DropDownList>
+            
+       
         <br />
-        <br />
-        <br />
+            
+       
         <asp:SqlDataSource ID="sdsSupport" runat="server" ConnectionString="<%$ ConnectionStrings:BallGamesConnectionString %>" ProviderName="<%$ ConnectionStrings:BallGamesConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Support]" ConflictDetection="CompareAllValues" DeleteCommand="DELETE FROM [Support] WHERE [SupportID] = ? AND [Name] = ? AND [Email] = ? AND [Phone] = ?" InsertCommand="INSERT INTO [Support] ([SupportID], [Name], [Email], [Phone]) VALUES (?, ?, ?, ?)" OldValuesParameterFormatString="original_{0}" UpdateCommand="UPDATE [Support] SET [Name] = ?, [Email] = ?, [Phone] = ? WHERE [SupportID] = ? AND [Name] = ? AND [Email] = ? AND [Phone] = ?">
             <DeleteParameters>
                 <asp:Parameter Name="original_SupportID" Type="Int32" />
@@ -33,6 +36,7 @@
                 <asp:Parameter Name="original_Phone" Type="String" />
             </UpdateParameters>
         </asp:SqlDataSource>
+        <br />
         <asp:FormView ID="fvSupport" runat="server" CellPadding="4" DataKeyNames="SupportID" DataSourceID="sdsSupportFormView" ForeColor="#333333" OnItemDeleted="fvSupport_ItemDeleted" OnItemInserted="fvSupport_ItemInserted" OnItemUpdated="fvSupport_ItemUpdated">
             <EditItemTemplate>
                 <table>
