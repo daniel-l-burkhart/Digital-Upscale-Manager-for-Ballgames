@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Data.OleDb;
+using System.Data.SqlClient;
 
 /// <summary>
 ///     Summary description for FeedbackDatabase
@@ -37,14 +38,13 @@ public class FeedbackDatabase
 
     public static IEnumerable GetCustomerFeedback(int customerId)
     {
-        var connection =
-    new OleDbConnection(BallgameDatabase.GetConnectionString());
+        var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
 
-        const string selection = "SELECT DateOpened, SoftwareID, Name " +
+        const string selection = "SELECT SupportID, SoftwareID, DateOpened, DateClosed, Title, Description " +
                                  "FROM Feedback " +
-                                 "INNER JOIN Customer ON Feedback.CustomerID = Customer.CustomerID " +
-                                 "WHERE CustomerID = @CustomerID AND DateClosed IS NOT NULL " +
-                                 "ORDER BY DateOpened";
+                                
+                                 "WHERE CustomerID = @CustomerID " +
+                                 "ORDER BY SupportID";
 
         var command = new OleDbCommand(selection, connection);
         command.Parameters.AddWithValue("CustomerID", customerId);
@@ -55,6 +55,17 @@ public class FeedbackDatabase
 
     public static int UpdateFeedback(Feedback originalFeedback, Feedback newFeedback)
     {
-        
+        var updateCount = 0;
+        const string update = "SET DateClosed = @DateClosed, Description = @Description " +
+                              "WHERE FeedbackID = @original_FeedbackID";
+
+        var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
+        var command = new OleDbCommand(update, connection);
+        command.Parameters.AddWithValue("DateClosed", newFeedback.DateClosed);
+        command.Parameters.AddWithValue("Description", newFeedback.Description);
+        command.Parameters.AddWithValue("original_FeedbackID", originalFeedback.FeedbackId);
+        connection.Open();
+        updateCount = command.ExecuteNonQuery();
+        return updateCount;
     }
 }
