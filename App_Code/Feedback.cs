@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 /// <author>
 ///     Daniel Burkhart
@@ -106,6 +107,7 @@ public class Feedback
             this._dateClosed = value;
         }
     }
+    
 
     /// <summary>
     ///     Gets or sets the title.

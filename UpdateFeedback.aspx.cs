@@ -1,14 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class UpdateFeedback : System.Web.UI.Page
+/// <author>
+///     Daniel Burkhart
+/// </author>
+/// <version>
+///     Spring 2015
+/// </version>
+/// <summary>
+///     The code behind for the UpdateFeedback page
+/// </summary>
+public partial class UpdateFeedback : Page
 {
+    /// <summary>
+    ///     Handles the Load event of the Page control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
     protected void Page_Load(object sender, EventArgs e)
     {
+    }
 
+    /// <summary>
+    ///     Handles the RowUpdated event of the gvCustomerFeedback control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="GridViewUpdatedEventArgs" /> instance containing the event data.</param>
+    protected void gvCustomerFeedback_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+    {
+        if (e.Exception != null)
+        {
+            this.lblError.Text = "A database error has occurred. <br/> <br/>" + e.Exception.Message;
+            this.InnerException(e);
+            e.ExceptionHandled = true;
+            e.KeepInEditMode = true;
+        }
+        else if (e.AffectedRows == 0)
+        {
+            this.lblError.Text = "Another user may have updated that category." + "<br/>Please try again.";
+        }
+    }
+
+    /// <summary>
+    ///     Inners the exception.
+    /// </summary>
+    /// <param name="e">The <see cref="GridViewUpdatedEventArgs" /> instance containing the event data.</param>
+    private void InnerException(GridViewUpdatedEventArgs e)
+    {
+        if (e.Exception.InnerException != null)
+        {
+            this.lblError.Text += "<br/> Message " + e.Exception.InnerException.Message;
+        }
     }
 }

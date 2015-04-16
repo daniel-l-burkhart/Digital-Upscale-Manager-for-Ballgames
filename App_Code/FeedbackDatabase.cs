@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 
@@ -36,13 +38,14 @@ public class FeedbackDatabase
         return dataReader;
     }
 
-    public static IEnumerable GetCustomerFeedback(int customerId)
+    public static List<Feedback> GetCustomerFeedback(int customerId)
     {
+        var feedbackList = new List<Feedback>();
         var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
 
         const string selection = "SELECT SupportID, SoftwareID, DateOpened, DateClosed, Title, Description " +
                                  "FROM Feedback " +
-                                
+
                                  "WHERE CustomerID = @CustomerID " +
                                  "ORDER BY SupportID";
 
@@ -50,22 +53,43 @@ public class FeedbackDatabase
         command.Parameters.AddWithValue("CustomerID", customerId);
         connection.Open();
         var dataReader = command.ExecuteReader();
-        return dataReader;
+        while (dataReader != null && dataReader.Read())
+        {
+            var currFeedback = new Feedback
+            {
+                SupportId = dataReader["SupportID"].ToString(),
+                SoftwareId = dataReader["SoftwareID"].ToString(),
+                DateOpened = dataReader["DateOpened"].ToString(),
+                DateClosed = dataReader["DateClosed"].ToString(),
+                Title = dataReader["Title"].ToString(),
+                Description = dataReader["Description"].ToString()
+            };
+            feedbackList.Add(currFeedback);
+        }
+
+        return feedbackList;
     }
 
-    public static int UpdateFeedback(Feedback originalFeedback, Feedback newFeedback)
+    public static int UpdateFeedback(Feedback original_Feedback, Feedback newFeedback)
     {
-        var updateCount = 0;
         const string update = "SET DateClosed = @DateClosed, Description = @Description " +
                               "WHERE FeedbackID = @original_FeedbackID";
 
         var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
         var command = new OleDbCommand(update, connection);
-        command.Parameters.AddWithValue("DateClosed", newFeedback.DateClosed);
+        if (newFeedback.DateClosed == null)
+        {
+            command.Parameters.AddWithValue("DateClosed", DBNull.Value);
+        }
+        else
+        {
+            command.Parameters.AddWithValue("DateClosed", newFeedback.DateClosed);
+        }
+
         command.Parameters.AddWithValue("Description", newFeedback.Description);
-        command.Parameters.AddWithValue("original_FeedbackID", originalFeedback.FeedbackId);
+        command.Parameters.AddWithValue("original_FeedbackID", original_Feedback.FeedbackId);
         connection.Open();
-        updateCount = command.ExecuteNonQuery();
+        var updateCount = command.ExecuteNonQuery();
         return updateCount;
     }
 }
