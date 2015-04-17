@@ -53,4 +53,24 @@ public partial class UpdateFeedback : Page
             this.lblError.Text += "<br/> Message " + e.Exception.InnerException.Message;
         }
     }
+
+    /// <summary>
+    /// Handles the OnUpdated event of the odsUpdateFeedback control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="ObjectDataSourceStatusEventArgs"/> instance containing the event data.</param>
+    protected void odsUpdateFeedback_OnUpdated(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        e.AffectedRows = Convert.ToInt32(e.ReturnValue);
+    }
+
+    /// <summary>
+    /// Handles the OnDeleted event of the odsUpdateFeedback control.
+    /// </summary>
+    /// <param name="sender">The source of the event.</param>
+    /// <param name="e">The <see cref="ObjectDataSourceStatusEventArgs"/> instance containing the event data.</param>
+    protected void odsUpdateFeedback_OnDeleted(object sender, ObjectDataSourceStatusEventArgs e)
+    {
+        e.AffectedRows = Convert.ToInt32(e.ReturnValue);
+    }
 }

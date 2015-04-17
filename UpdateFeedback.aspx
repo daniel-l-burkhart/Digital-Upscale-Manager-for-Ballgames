@@ -12,87 +12,50 @@
         <asp:ObjectDataSource ID="odsCustomers" runat="server" SelectMethod="GetCustomersWithFeedback" TypeName="CustomerDatabase"></asp:ObjectDataSource>
         <br />
         <br />
-        <asp:GridView ID="gvCustomerFeedback" runat="server" AutoGenerateColumns="False" DataSourceID="odsUpdateFeedback" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" OnRowUpdated="gvCustomerFeedback_RowUpdated" >
+        <asp:GridView ID="gvCustomerFeedback" runat="server" AutoGenerateColumns="False" DataSourceID="odsFeedback" OnRowUpdated="gvCustomerFeedback_RowUpdated" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateEditButton="True">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                
-                <asp:TemplateField HeaderText="Support ID">
-                    <EditItemTemplate>
-                       <asp:Label ID="lblSupportID" runat="server" Text='<%# Eval("SupportID") %>' ForeColor="White"></asp:Label>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("SupportID") %>' ></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Software ID">
-                    <EditItemTemplate>
-                        <asp:Label ID="lblSoftwareID" runat="server" Text='<%# Eval("SoftwareID") %>' ForeColor="White"></asp:Label>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("SoftwareID") %>' ></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Date Opened">
-                    <EditItemTemplate>
-                        <asp:Label ID="lblDateOpened" runat="server" Text='<%# Eval("DateOpened") %>' ForeColor="White"></asp:Label>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("DateOpened") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Date Closed">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtDateClosed" runat="server" Text='<%# Eval("DateClosed") %>'></asp:TextBox>
-                        <asp:CompareValidator ID="cvDateClosed" runat="server" ErrorMessage="Please enter a valid date." Display="Dynamic" ControlToValidate="txtDateClosed" Font-Underline="False" Type="Date" Operator="DataTypeCheck">*</asp:CompareValidator>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("DateClosed") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Feedback Title">
-                    <EditItemTemplate>
-                        <asp:Label ID="lblTitle" runat="server" Text='<%# Bind("Title") %>' ForeColor="White"></asp:Label>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Feedback Description">
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtDescription" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rfvDescription" ControlToValidate="txtDescription" Display="Dynamic" runat="server" ErrorMessage="Description is a required field.">*</asp:RequiredFieldValidator>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
 
-                <asp:CommandField ShowEditButton="True" />
+                <asp:BoundField DataField="SoftwareId" HeaderText="SoftwareId" SortExpression="SoftwareId" ReadOnly="True" />
+                <asp:BoundField DataField="SupportId" HeaderText="SupportId" SortExpression="SupportId" ReadOnly="True" />
+                <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" ReadOnly="True" />
+                <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
+                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" ReadOnly="True" />
+                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
 
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" Width="700px" />
+            <RowStyle BackColor="#EFF3FB" />
             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             <SortedAscendingCellStyle BackColor="#F5F7FB" />
             <SortedAscendingHeaderStyle BackColor="#6D95E1" />
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-        <asp:ValidationSummary ID="vsUpdateFeedback" runat="server" />
-        <asp:ObjectDataSource ID="odsUpdateFeedback" 
-            runat="server" SelectMethod="GetCustomerFeedback" 
-            TypeName="FeedbackDatabase" UpdateMethod="UpdateFeedback" >
+
+        <asp:ObjectDataSource
+            ID="odsFeedback" runat="server"
+            DataObjectTypeName="Feedback"
+            SelectMethod="GetCustomerFeedback"
+            TypeName="FeedbackDatabase"
+            UpdateMethod="Update"
+            ConflictDetection="CompareAllValues"
+            OnDeleted="odsUpdateFeedback_OnDeleted"
+            OnUpdated="odsUpdateFeedback_OnUpdated" OldValuesParameterFormatString="originalFeedback{0}">
+
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlCustomers" Name="customerId" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
             <UpdateParameters>
-                <asp:Parameter Name="original_Feedback" Type="Object" />
-                <asp:Parameter Name="newFeedback" Type="Object" />
+                <asp:Parameter Name="originalFeedback" Type="Object" />
+                <asp:Parameter Name="feedback" Type="Object" />
             </UpdateParameters>
         </asp:ObjectDataSource>
+        <asp:ValidationSummary ID="vsUpdateFeedback" runat="server" />
+
         <br />
         <asp:Label ID="lblError" runat="server" SkinID="error"></asp:Label>
     </div>

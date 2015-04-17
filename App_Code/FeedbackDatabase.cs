@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.OleDb;
-using System.Data.SqlClient;
 
 /// <summary>
 ///     Summary description for FeedbackDatabase
@@ -13,7 +13,8 @@ using System.Data.SqlClient;
 /// <version>
 ///     Spring 2015
 /// </version>
-public class FeedbackDatabase
+[DataObject(true)]
+public static class FeedbackDatabase
 {
     /// <summary>
     ///     Gets the open feedback incidents.
@@ -37,8 +38,9 @@ public class FeedbackDatabase
         var dataReader = command.ExecuteReader();
         return dataReader;
     }
-
-    public static List<Feedback> GetCustomerFeedback(int customerId)
+    
+    [DataObjectMethod(DataObjectMethodType.Select)]
+    public static IEnumerable GetCustomerFeedback(int customerId)
     {
         var feedbackList = new List<Feedback>();
         var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
@@ -70,26 +72,106 @@ public class FeedbackDatabase
         return feedbackList;
     }
 
-    public static int UpdateFeedback(Feedback original_Feedback, Feedback newFeedback)
+    /// <summary>
+    /// Updates the feedback.
+    /// </summary>
+    /// <param name="originalFeedback">The originalFeedback feedback.</param>
+    /// <param name="newFeedback">The new feedback.</param>
+    /// <param name="dateClosed">The date closed.</param>
+    /// <param name="description">The description.</param>
+    /// <returns></returns>
+    public static int UpdateFeedback(Feedback originalFeedback, Feedback newFeedback, string dateClosed, string description)
     {
-        const string update = "SET DateClosed = @DateClosed, Description = @Description " +
-                              "WHERE FeedbackID = @original_FeedbackID";
+        const string update = "UPDATE Feedback "+
+                              "SET DateClosed = @DateClosed, " 
+                              +"Description = @Description " +
+                              "WHERE FeedbackID = @originalFeedbackID "
+                              + "AND CustomerID = @originalCustomerID " +
+                              "AND SoftwareID = @originalSoftwareID " +
+                              "AND SupportID = @originalSupportID " +
+                              "AND DateOpened = @originalDateOpened "
+                              + "AND Title = @originalTitle " +
+                              "AND DateClosed = @originalDateClosed " +
+                              "AND Description = @originalDescription";
 
         var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
+
         var command = new OleDbCommand(update, connection);
-        if (newFeedback.DateClosed == null)
+
+        if (dateClosed == null)
         {
             command.Parameters.AddWithValue("DateClosed", DBNull.Value);
         }
         else
         {
-            command.Parameters.AddWithValue("DateClosed", newFeedback.DateClosed);
+            command.Parameters.AddWithValue("DateClosed", dateClosed);
         }
 
-        command.Parameters.AddWithValue("Description", newFeedback.Description);
-        command.Parameters.AddWithValue("original_FeedbackID", original_Feedback.FeedbackId);
+        command.Parameters.AddWithValue("Description", description);
+
+        command.Parameters.AddWithValue("originalFeedbackID", originalFeedback.FeedbackId);
+        command.Parameters.AddWithValue("originalCustomerID", originalFeedback.CustomerId);
+        command.Parameters.AddWithValue("originalSoftwareID", originalFeedback.SoftwareId);
+        command.Parameters.AddWithValue("originalSupportID", originalFeedback.SupportId);
+        command.Parameters.AddWithValue("originalDateOpened", originalFeedback.DateOpened);
+        command.Parameters.AddWithValue("originalDateClosed", originalFeedback.DateClosed);
+        command.Parameters.AddWithValue("originalTitle", originalFeedback.Title);
+        command.Parameters.AddWithValue("originalDescription", originalFeedback.Description);
+
         connection.Open();
+
         var updateCount = command.ExecuteNonQuery();
+
+        connection.Close();
+
+        return updateCount;
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Update)]
+    public static object Update(Feedback originalFeedback, Feedback feedback)
+    {
+        const string update = "UPDATE Feedback " +
+                              "SET DateClosed = @DateClosed, "
+                              + "Description = @Description " +
+                              "WHERE FeedbackID = @originalFeedbackID "
+                              + "AND CustomerID = @originalCustomerID " +
+                              "AND SoftwareID = @originalSoftwareID " +
+                              "AND SupportID = @originalSupportID " +
+                              "AND DateOpened = @originalDateOpened "
+                              + "AND Title = @originalTitle " +
+                              "AND DateClosed = @originalDateClosed " +
+                              "AND Description = @originalDescription";
+
+        var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
+
+        var command = new OleDbCommand(update, connection);
+
+        if (feedback.DateClosed == null)
+        {
+            command.Parameters.AddWithValue("DateClosed", DBNull.Value);
+        }
+        else
+        {
+            command.Parameters.AddWithValue("DateClosed", feedback.DateClosed);
+        }
+
+        command.Parameters.AddWithValue("Description", feedback.Description);
+
+        command.Parameters.AddWithValue("originalFeedbackID", originalFeedback.FeedbackId);
+        command.Parameters.AddWithValue("originalCustomerID", originalFeedback.CustomerId);
+        command.Parameters.AddWithValue("originalSoftwareID", originalFeedback.SoftwareId);
+        command.Parameters.AddWithValue("originalSupportID", originalFeedback.SupportId);
+        command.Parameters.AddWithValue("originalDateOpened", originalFeedback.DateOpened);
+        command.Parameters.AddWithValue("originalDateClosed", originalFeedback.DateClosed);
+        command.Parameters.AddWithValue("originalTitle", originalFeedback.Title);
+        command.Parameters.AddWithValue("originalDescription", originalFeedback.Description);
+
+        connection.Open();
+
+        var updateCount = command.ExecuteNonQuery();
+
+        connection.Close();
+
         return updateCount;
     }
 }

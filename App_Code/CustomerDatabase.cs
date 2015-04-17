@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Data.OleDb;
-using System.Linq;
-using System.Web;
+
 
 /// <summary>
 /// Summary description for CustomerDatabase
 /// </summary>
 public class CustomerDatabase
 {
-	public CustomerDatabase()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
 
     public static IEnumerable GetCustomersWithFeedback()
     {
