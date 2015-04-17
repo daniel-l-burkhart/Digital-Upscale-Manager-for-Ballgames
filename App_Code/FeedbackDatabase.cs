@@ -133,13 +133,7 @@ public static class FeedbackDatabase
         const string update = "UPDATE Feedback " +
                               "SET DateClosed = @DateClosed, "
                               + "Description = @Description " +
-                              "WHERE FeedbackID = @originalFeedbackID "
-                              + "AND CustomerID = @originalCustomerID " +
-                              "AND SoftwareID = @originalSoftwareID " +
-                              "AND SupportID = @originalSupportID " +
-                              "AND DateOpened = @originalDateOpened "
-                              + "AND Title = @originalTitle " +
-                              "AND DateClosed = @originalDateClosed " +
+                              "WHERE DateClosed = @originalDateClosed " +
                               "AND Description = @originalDescription";
 
         var connection = new OleDbConnection(BallgameDatabase.GetConnectionString());
@@ -157,13 +151,20 @@ public static class FeedbackDatabase
 
         command.Parameters.AddWithValue("Description", feedback.Description);
 
-        command.Parameters.AddWithValue("originalFeedbackID", originalFeedback.FeedbackId);
+      /*  command.Parameters.AddWithValue("originalFeedbackID", originalFeedback.FeedbackId);
         command.Parameters.AddWithValue("originalCustomerID", originalFeedback.CustomerId);
         command.Parameters.AddWithValue("originalSoftwareID", originalFeedback.SoftwareId);
         command.Parameters.AddWithValue("originalSupportID", originalFeedback.SupportId);
         command.Parameters.AddWithValue("originalDateOpened", originalFeedback.DateOpened);
+       
+       * SoftwareID = @originalSoftwareID " +
+                              "AND SupportID = @originalSupportID " +
+                              "AND DateOpened = @originalDateOpened "
+                              + "AND Title = @originalTitle " +
+       
+       */
         command.Parameters.AddWithValue("originalDateClosed", originalFeedback.DateClosed);
-        command.Parameters.AddWithValue("originalTitle", originalFeedback.Title);
+      //  command.Parameters.AddWithValue("originalTitle", originalFeedback.Title);
         command.Parameters.AddWithValue("originalDescription", originalFeedback.Description);
 
         connection.Open();

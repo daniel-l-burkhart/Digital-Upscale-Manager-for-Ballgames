@@ -12,7 +12,7 @@
         <asp:ObjectDataSource ID="odsCustomers" runat="server" SelectMethod="GetCustomersWithFeedback" TypeName="CustomerDatabase"></asp:ObjectDataSource>
         <br />
         <br />
-        <asp:GridView ID="gvCustomerFeedback" runat="server" AutoGenerateColumns="False" DataSourceID="odsFeedback" OnRowUpdated="gvCustomerFeedback_RowUpdated" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateEditButton="True">
+        <asp:GridView ID="gvCustomerFeedback" runat="server" AutoGenerateColumns="False" DataSourceID="odsFeedback" OnRowUpdated="gvCustomerFeedback_RowUpdated" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
 
@@ -21,7 +21,16 @@
                 <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" ReadOnly="True" />
                 <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
                 <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" ReadOnly="True" />
-                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                <asp:TemplateField HeaderText="Description" SortExpression="Description">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtDescription" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine"></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:CommandField ShowEditButton="True" />
 
             </Columns>
             <EditRowStyle BackColor="#2461BF" />
@@ -44,7 +53,7 @@
             UpdateMethod="Update"
             ConflictDetection="CompareAllValues"
             OnDeleted="odsUpdateFeedback_OnDeleted"
-            OnUpdated="odsUpdateFeedback_OnUpdated" OldValuesParameterFormatString="originalFeedback{0}">
+            OnUpdated="odsUpdateFeedback_OnUpdated" OldValuesParameterFormatString="originalFeedback">
 
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlCustomers" Name="customerId" PropertyName="SelectedValue" Type="Int32" />
