@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Data.OleDb;
 
-
+/// <author>
+///     Daniel Burkhart
+/// </author>
+/// <version>
+///     Spring 2015
+/// </version>
 /// <summary>
-/// Summary description for CustomerDatabase
+///     Summary description for CustomerDatabase
 /// </summary>
 public class CustomerDatabase
 {
-
     public static IEnumerable GetCustomersWithFeedback()
     {
         var connection =
-      new OleDbConnection(BallgameDatabase.GetConnectionString());
+            new OleDbConnection(BallgameDatabase.GetConnectionString());
 
         const string selection = "SELECT CustomerID, Name FROM Customer " +
                                  "WHERE CustomerID IN " +
@@ -22,5 +26,5 @@ public class CustomerDatabase
         connection.Open();
         var dataReader = command.ExecuteReader();
         return dataReader;
-    } 
+    }
 }

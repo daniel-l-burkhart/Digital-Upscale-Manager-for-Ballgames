@@ -5,7 +5,7 @@
 <asp:Content ID="bodyContent" ContentPlaceHolderID="contentPlaceHolder" runat="Server">
     <div id="margin">
     
-        <h2>Please choose a staff member to see their information below.</h2>
+        <h2>Please choose a staff member to see their information below or click new to add a new staff member.</h2>
         
         <asp:DropDownList ID="ddlSupport" runat="server" AutoPostBack="True" DataSourceID="sdsSupport" DataTextField="Name" DataValueField="SupportID"></asp:DropDownList>
             
