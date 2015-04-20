@@ -12,6 +12,10 @@ using System.Data.OleDb;
 /// </summary>
 public class CustomerDatabase
 {
+    /// <summary>
+    /// Gets the customers with feedback.
+    /// </summary>
+    /// <returns>Collection of customer feedback</returns>
     public static IEnumerable GetCustomersWithFeedback()
     {
         var connection =

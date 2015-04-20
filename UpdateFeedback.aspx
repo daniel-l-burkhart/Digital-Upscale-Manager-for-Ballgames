@@ -16,14 +16,50 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
 
-                <asp:BoundField DataField="SoftwareId" HeaderText="SoftwareId" SortExpression="SoftwareId" ReadOnly="True" />
-                <asp:BoundField DataField="SupportId" HeaderText="SupportId" SortExpression="SupportId" ReadOnly="True" />
-                <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" ReadOnly="True" />
-                <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
-                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" ReadOnly="True" />
+                <asp:TemplateField HeaderText="SoftwareId" SortExpression="SoftwareId">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label1" runat="server" ForeColor="White" Text='<%# Eval("SoftwareId") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("SoftwareId") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="SupportId" SortExpression="SupportId">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label2" runat="server" ForeColor="White" Text='<%# Eval("SupportId") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("SupportId") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="DateOpened" SortExpression="DateOpened">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label3" runat="server" ForeColor="White" Text='<%# Eval("DateOpened") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label3" runat="server" Text='<%# Bind("DateOpened") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="DateClosed" SortExpression="DateClosed">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DateClosed") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label4" runat="server" Text='<%# Bind("DateClosed") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Title" SortExpression="Title">
+                    <EditItemTemplate>
+                        <asp:Label ID="Label4" runat="server" ForeColor="White" Text='<%# Eval("Title") %>'></asp:Label>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Description" SortExpression="Description">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtDescription" runat="server" Text='<%# Bind("Description") %>' TextMode="MultiLine"></asp:TextBox>
+                        <asp:RequiredFieldValidator ControlToValidate="txtDescription" ID="rfvDescription" runat="server" ErrorMessage="Description is a required field.">*</asp:RequiredFieldValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblDescription" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
@@ -53,7 +89,8 @@
             UpdateMethod="Update"
             ConflictDetection="CompareAllValues"
             OnDeleted="odsUpdateFeedback_OnDeleted"
-            OnUpdated="odsUpdateFeedback_OnUpdated" OldValuesParameterFormatString="originalFeedback">
+            OnUpdated="odsUpdateFeedback_OnUpdated" 
+            OldValuesParameterFormatString="originalFeedback">
 
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlCustomers" Name="customerId" PropertyName="SelectedValue" Type="Int32" />
