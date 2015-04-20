@@ -59,6 +59,12 @@ public class Description
         }
     }
 
+    /// <summary>
+    ///     Gets or sets the efficiency.
+    /// </summary>
+    /// <value>
+    ///     The efficiency.
+    /// </value>
     public int Efficiency
     {
         get { return this._efficiency; }

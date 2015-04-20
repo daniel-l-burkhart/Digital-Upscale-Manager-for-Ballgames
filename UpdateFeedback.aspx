@@ -16,7 +16,7 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
 
-                <asp:TemplateField HeaderText="SoftwareId" SortExpression="SoftwareId">
+                <asp:TemplateField HeaderText="Software ID" SortExpression="SoftwareId">
                     <EditItemTemplate>
                         <asp:Label ID="Label1" runat="server" ForeColor="White" Text='<%# Eval("SoftwareId") %>'></asp:Label>
                     </EditItemTemplate>
@@ -24,7 +24,7 @@
                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("SoftwareId") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="SupportId" SortExpression="SupportId">
+                <asp:TemplateField HeaderText="Support ID" SortExpression="SupportId">
                     <EditItemTemplate>
                         <asp:Label ID="Label2" runat="server" ForeColor="White" Text='<%# Eval("SupportId") %>'></asp:Label>
                     </EditItemTemplate>
@@ -32,7 +32,7 @@
                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("SupportId") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="DateOpened" SortExpression="DateOpened">
+                <asp:TemplateField HeaderText="Date Opened" SortExpression="DateOpened">
                     <EditItemTemplate>
                         <asp:Label ID="Label3" runat="server" ForeColor="White" Text='<%# Eval("DateOpened") %>'></asp:Label>
                     </EditItemTemplate>
@@ -40,7 +40,7 @@
                         <asp:Label ID="Label3" runat="server" Text='<%# Bind("DateOpened") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="DateClosed" SortExpression="DateClosed">
+                <asp:TemplateField HeaderText="Date Closed" SortExpression="DateClosed">
                     <EditItemTemplate>
                         <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DateClosed") %>'></asp:TextBox>
                     </EditItemTemplate>
@@ -73,7 +73,7 @@
             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
+            <RowStyle BackColor="#EFF3FB" HorizontalAlign="Center" />
             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
             <SortedAscendingCellStyle BackColor="#F5F7FB" />
             <SortedAscendingHeaderStyle BackColor="#6D95E1" />

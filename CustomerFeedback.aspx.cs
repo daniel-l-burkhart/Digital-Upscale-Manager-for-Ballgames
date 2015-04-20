@@ -48,6 +48,9 @@ public partial class CustomerFeedback : Page
         this.lblCustomerIDNotInList.Text = string.Empty;
     }
 
+    /// <summary>
+    /// Contacts the method.
+    /// </summary>
     private void ContactMethod()
     {
         if (this.cbContact.Checked)
