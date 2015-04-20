@@ -12,6 +12,12 @@ using System.Collections.Generic;
 /// </summary>
 public class LastNameCustomerSort : IComparer<CustomerListItem>
 {
+    /// <summary>
+    /// Compares the specified first customer.
+    /// </summary>
+    /// <param name="firstCustomer">The first customer.</param>
+    /// <param name="secondCustomer">The second customer.</param>
+    /// <returns></returns>
     public int Compare(CustomerListItem firstCustomer, CustomerListItem secondCustomer)
     {
         var firstCustomerName = firstCustomer.Customer.CustomerName.Split();
